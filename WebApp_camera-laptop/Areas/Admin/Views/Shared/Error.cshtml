@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebApp_camera_laptop.Models.ErrorViewModel>
+@{
+    ViewData["Title"] = "Error";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div id="page-404" style=" padding-top: 210px;">
+    <div class="content">
+        <div class="title-on-desktop">
+            <svg style="width: 600px; height: 200px" alignment-baseline="middle">
+                <defs>
+                    <clipPath id="clip2">
+                        <path d="M 0 0 L 600 0 L 600 80 L 0 80 L 0 0 L 0 125 L 600 125 L 600 200 L 0 200 Z" />
+                    </clipPath>
+                </defs>
+                <text x="300" y="190" style="width: 600px; height: 200px" text-anchor="middle" font-family="Lato" font-weight="700" font-size="250" fill="#ff5b5b" clip-path="url(#clip2)">500</text>
+            </svg>
+            <div class="title">LỖI MÁY CHỦ NỘI BỘ</div>
+        </div>
+        <h1 class="title-on-mobile">Error 500: Lỗi máy chủ nội bộ</h1>
+        <p>Máy chủ gặp lỗi nội bộ do cấu hình sai và không thể hoàn thành yêu cầu của bạn</p>
+        <a asp-area="Admin" asp-controller="Home" class="btn btn-success">Quay về trang chủ</a>
+
+    </div>
+</div>
+
+

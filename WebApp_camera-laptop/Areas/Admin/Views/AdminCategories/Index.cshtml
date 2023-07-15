@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebApp_camera_laptop.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="breadcrumb__area box-plr-75">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="breadcrumb__wrapper">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home">Trang chủ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a></a>Quản lý danh mục</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="col-xs-12">
+    <div class="box-content">
+        <h4 class="box-title">Danh sách danh mục</h4>
+        <div class="dropdown js__drop_down">
+            <a class="btn btn-info btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminCategories" asp-action="Create">Thêm danh mục</a>
+            <!-- /.sub-menu -->
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên danh mục</th>
+                    <th>Mô tả</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.CatId</th>
+                            <td>@item.CatName</td>
+                            <td>@item.Description</td>
+                            <td>
+                                <a class="btn btn-info btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminCategories" asp-action="Details" asp-route-id="@item.CatId">Chi tiết</a>
+                                <a class="btn btn-primary btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminCategories" asp-action="Edit" asp-route-id="@item.CatId">Cập nhật</a>
+                                <a class="btn btn-danger btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminCategories" asp-action="Delete" asp-route-id="@item.CatId">Xóa</a>
+
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.box-content -->
+</div>

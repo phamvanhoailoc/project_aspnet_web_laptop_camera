@@ -1,0 +1,101 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<WebApp_camera_laptop.Models.Product>
+
+@{
+    int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Danh sách sản phẩm" + CurrentPage;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-xs-12">
+    <div class="box-content">
+        <h4 class="box-title">Danh sách sản phẩm</h4>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <div class="form-group margin-bottom-20">
+                    <select class="form-control" id="txtCatID" name="txtCatID" asp-items="ViewBag.DanhMuc">
+                        <option value="" selected disabled>chọn danh mục</option>
+                        <option value="0">chọn tất cả</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <div class="input-group margin-bottom-20">
+                    <input id="keyword" name="keyword" type="text" class="form-control" placeholder="Tìm kiếm sản phẩm">
+                    <!-- /.input-group-btn -->
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <!-- /.box-title -->
+                <div class="dropdown js__drop_down">
+                    <a class="btn btn-info btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminProducts" asp-action="Create">Thêm sản phẩm</a>
+                    <!-- /.sub-menu -->
+                </div>
+            </div>
+        </div>
+        <!-- /.dropdown js__dropdown -->
+        <table id="example" class="table table-striped table-bordered display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên sản phẩm</th>
+                
+                    <th>Giá</th>
+                    <th>Tồn kho</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody id="records_table">
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                <tr>
+                    <td>@item.ProductId</td>
+                    <td width="300px">@item.ProductName</td>
+                  
+
+                    @if (item.Price != null)
+                    {
+                        <td>@item.Price.Value.ToString("#,###") VND</td>
+                    }
+                    else
+                    {
+                        <td>Không có dữ liệu</td>
+                    }
+                    <td>@item.UnitslnStock</td>
+                    @if (item.StatusId != null)
+                    {
+                        <td>@item.Status.StatusName</td>
+                    }
+                    else
+                    {
+                        <td>Không có dữ liệu</td>
+                    }
+
+
+                    <td class="d-grid gap-2">
+                        <a class="btn btn-info btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">View</a>
+                        <a class="btn btn-primary btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">Edit</a>
+                        <a class="btn btn-danger btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+                    </td>
+                </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="dataTables_info" id="example_info" role="status" aria-live="polite">Page @CurrentPage</div>
+            </div>
+            <div class="col-sm-7">
+                <div class="dataTables_paginate paging_simple_numbers" id="example_paginate">
+                    <ul class="pagination">
+                        <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminProducts" asp-route-CatID="@ViewBag.CurrentCateID" asp-action="Index"></pager>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.box-content -->
+</div>

@@ -1,0 +1,49 @@
+﻿@model WebApp_camera_laptop.Models.ProductCategori
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="breadcrumb__area box-plr-75">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="breadcrumb__wrapper">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                            <li class="breadcrumb-item active"><a asp-action="Index">Quản lý danh mục - sản phẩm</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a></a>Thêm danh mục - sản phẩm</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="emailfield">Chọn danh mục</label>
+                <select class="form-control" asp-for="CatId" asp-items="ViewBag.CatId">
+                    <option value="" disabled selected>Chọn danh mục</option>
+                </select>
+            </div>
+            <div class="form-group ">
+                <label for="emailfield">Chọn sản phẩm</label>
+                <select class="form-control" asp-for="ProductsId" asp-items="ViewBag.ProductsId">
+                    <option value="" disabled selected>Chọn sản phẩm</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" value="Create" class="btn btn-primary">Tạo mới</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index" class="btn btn-default">Quay lại</a>
+</div>

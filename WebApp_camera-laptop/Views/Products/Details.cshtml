@@ -91,7 +91,7 @@
                             <h3 class="product__details-title">
                                 <a href="product-details.html">@Model.ProductName</a>
                             </h3>
-                            <div class="product__review d-sm-flex">
+                           @* <div class="product__review d-sm-flex">
                                 <div class="rating rating__shop mb-15 mr-35">
                                     <ul>
                                         <li><a href="#"><i class="fal fa-star"></i></a></li>
@@ -105,20 +105,20 @@
                                     <span><a href="#">1 Review</a></span>
                                     <span><a href="#">Add Review</a></span>
                                 </div>
-                            </div>
+                            </div>*@
                             <div class="product__price">
-                                <span class="new">@Model.Discount.Value.ToString("#,###") VND</span>
+                                <span class="new" style="color:red" >@Model.Discount.Value.ToString("#,###") VND</span>
                                 <span class="old">@Model.Price.Value.ToString("#,###") VND</span>
                             </div>
                             <div class="product__stock">
                                 <span>Trạng thái :</span>
                                 @if (Model.UnitslnStock.Value > 0)
                                 {
-                                    <span class="notice notice-blue">Còn hàng</span>
+                                    <span class="notice notice-blue" style="color: #058b34;">Còn hàng</span>
                                 }
                                 else
                                 {
-                                    <span class="notice notice-danger">Hết hàng</span>
+                                    <span class="notice notice-danger" style="color: red;">Hết hàng</span>
                                 }
                             </div>
                         @*    <div class="product__stock">
@@ -169,16 +169,16 @@
                                     <div class="product__details-quantity mb-20">
                                         <form action="#">
                                             <div class="pro-quan-area d-lg-flex align-items-center">
-                                                <div class="product-quantity mr-20 mb-25">
+                                                @*<div class="product-quantity mr-20 mb-25">
                                                     <div class="cart-plus-minus p-relative">
                                                         <input class="txtsoLuong" type="text" value="1" min="1" max="@Model.UnitslnStock">
                                                         <div class=" dec qtybutton">-</div>
                                                         <div class="inc qtybutton">+</div>
                                                     </div>
-                                                </div>
+                                                </div>*@
                                                 
                                                 <div class="pro-cart-btn mb-25">
-                                                    <a class="add-to-cart t-y-btn" href="https://www.laptopsieure.vn/" target="_blank">Thêm vào giò hàng</a>
+                                                    <a class="add-to-cart t-y-btn" style="background-color: #4285F4;border-radius: 0px;" href="https://www.laptopsieure.vn/" target="_blank">TƯ VẤN ZALO</a>
                                                     <input hidden asp-for="ProductId" />
                                                 </div>
                                              
@@ -203,14 +203,14 @@
                                     </div>
                                 }
                             </div>
-                            <div class="product__details-action">
+                            @*<div class="product__details-action">
                                 <ul>
                                     <li><a href="#" title="Add to Wishlist"><i class="fal fa-heart"></i></a></li>
                                     <li><a href="#" title="Compare"><i class="far fa-sliders-h"></i></a></li>
                                     <li><a href="#" title="Print"><i class="fal fa-print"></i></a></li>
                                     <li><a href="#" title="Print"><i class="fal fa-share-alt"></i></a></li>
                                 </ul>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>
@@ -325,13 +325,13 @@
                                             <img src="~/images/products/@firstImage" alt="@item.Title">
                                             <img class="second-img" src="~/images/products/@SeconImage" alt="@item.Title">
                                         </a>
-                                        <div class="product__action p-absolute">
+                                        @*<div class="product__action p-absolute">
                                             <ul>
                                                 <li><a href="#" title="Add to Wishlist"><i class="fal fa-heart"></i></a></li>
                                                 <li><a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#productModalId"><i class="fal fa-search"></i></a></li>
                                                 <li><a href="#" title="Compare"><i class="far fa-sliders-h"></i></a></li>
                                             </ul>
-                                        </div>
+                                        </div>*@
                                     </div>
                                     <div class="product__content text-center">
                                         <h6 class="product-name">
@@ -348,9 +348,9 @@
                                         </div>
                                         <span class="price">@item.Price.Value.ToString("#,###") VND</span>
                                     </div>
-                                    <div class="product__add-btn">
+                                   @* <div class="product__add-btn">
                                         <button type="button">Thêm vào giỏ hàng</button>
-                                    </div>
+                                    </div>*@
                                 </div>
                             }
                         }

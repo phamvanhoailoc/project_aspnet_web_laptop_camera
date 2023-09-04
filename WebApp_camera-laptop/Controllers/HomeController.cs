@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using PagedList.Core;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,13 +26,27 @@ namespace WebApp_camera_laptop.Controllers
 
         public IActionResult Index()
         {
-            HomeViewVM model = new HomeViewVM();
-            List<Category> categories = _context.Categories.ToList();
-            List<Category> hierarchicalCategories = BuildCategoryHierarchy(categories);
+            try
+            {
+                int CatId = 11;
+                HomeViewVM model = new HomeViewVM();
+                List<Category> categories = _context.Categories.ToList();
+                List<Category> hierarchicalCategories = BuildCategoryHierarchy(categories);
+                var danhmuc = _context.Categories.AsNoTracking().SingleOrDefault(x => x.CatId == CatId);
+                var IsProducts = _context.Products
+                    .AsNoTracking()
+                    .Where(p => p.ProductCategoris.Any(pc => pc.CatId == danhmuc.CatId))
+                    .OrderByDescending(x => x.DateCreated)
+                    .ToList(); 
 
-
-            model.Categories = hierarchicalCategories;
-            return View(model);
+                model.Products = IsProducts;
+                model.Categories = hierarchicalCategories;
+                return View(model);
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
         private List<Category> BuildCategoryHierarchy(List<Category> categories)
         {
@@ -51,8 +67,6 @@ namespace WebApp_camera_laptop.Controllers
 
             return rootCategories;
         }
-
-
 
         public IActionResult Privacy()
         {

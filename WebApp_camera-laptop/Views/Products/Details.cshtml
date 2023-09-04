@@ -58,70 +58,27 @@
                     <div class="col-xxl-5 col-xl-5 col-lg-5">
                         <div class="product__details-nav d-sm-flex align-items-start">
                             <ul class="nav nav-tabs flex-sm-column justify-content-between" id="productThumbTab" role="tablist">
-
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="thumbOne-tab" data-bs-toggle="tab" data-bs-target="#thumbOne" type="button" role="tab" aria-controls="thumbOne" aria-selected="true">
-                                        <img src="~/images/products/@imageList[0]" alt="@Model.Title">
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="thumbTwo-tab" data-bs-toggle="tab" data-bs-target="#thumbTwo" type="button" role="tab" aria-controls="thumbTwo" aria-selected="false">
-                                        <img src="~/images/products/@imageList[1]" alt="@Model.Title">
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="thumbThree-tab" data-bs-toggle="tab" data-bs-target="#thumbThree" type="button" role="tab" aria-controls="thumbThree" aria-selected="false">
-                                        <img src="~/images/products/@imageList[2]" alt="@Model.Title">
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="thumbFour-tab" data-bs-toggle="tab" data-bs-target="#thumbFour" type="button" role="tab" aria-controls="thumbFour" aria-selected="false">
-                                        <img src="~/images/products/@imageList[3]" alt="@Model.Title">
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="thumbFive-tab" data-bs-toggle="tab" data-bs-target="#thumbFive" type="button" role="tab" aria-controls="thumbFive" aria-selected="false">
-                                        <img src="~/images/products/@imageList[4]" alt="@Model.Title">
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="thumbSix-tab" data-bs-toggle="tab" data-bs-target="#thumbSix" type="button" role="tab" aria-controls="thumbSix" aria-selected="false">
-                                        <img src="~/images/products/@imageList[5]" alt="@Model.Title">
-                                    </button>
-                                </li>
+                                 @for (var i = 0; i < 6; i++)
+                                {
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link @((i == 0) ? "active" : "")" id="thumb@(i + 1)-tab" data-bs-toggle="tab" data-bs-target="#thumb@(i + 1)" type="button" role="tab" aria-controls="thumb@(i + 1)" aria-selected="@(i == 0)">
+                                            <img src="~/images/products/@imageList[i]" alt="@Model.Title">
+                                        </button>
+                                    </li>
+                                }
+                               
+                              
                             </ul>
                             <div class="product__details-thumb">
                                 <div class="tab-content" id="productThumbContent">
-                                    <div class="tab-pane fade show active" id="thumbOne" role="tabpanel" aria-labelledby="thumbOne-tab">
-                                        <div class="product__details-nav-thumb">
-                                            <img id="zoom_01" src="~/images/products/@imageList[0]"  alt="@Model.Title">
+                                    @for (var i = 0; i < 6; i++)
+                                    {
+                                        <div class="tab-pane fade @(i == 0 ? "show active" : "")" id="thumb@(i + 1)" role="tabpanel" aria-labelledby="thumb@(i + 1)-tab">
+                                            <div class="product__details-nav-thumb">
+                                                <img class="zoom_01" src="~/images/products/@imageList[i]" alt="@Model.Title">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="thumbTwo" role="tabpanel" aria-labelledby="thumbTwo-tab">
-                                        <div class="product__details-nav-thumb">
-                                            <img id="zoom_02" src="~/images/products/@imageList[1]" alt="@Model.Title">
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="thumbThree" role="tabpanel" aria-labelledby="thumbThree-tab">
-                                        <div class="product__details-nav-thumb">
-                                            <img id="zoom_03" src="~/images/products/@imageList[2]" alt="@Model.Title">
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="thumbFour" role="tabpanel" aria-labelledby="thumbFour-tab">
-                                        <div class="product__details-nav-thumb">
-                                            <img id="zoom_04" src="~/images/products/@imageList[3]" alt="@Model.Title">
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="thumbFive" role="tabpanel" aria-labelledby="thumbFive-tab">
-                                        <div class="product__details-nav-thumb">
-                                            <img id="zoom_05" src="~/images/products/@imageList[4]" alt="@Model.Title">
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="thumbSix" role="tabpanel" aria-labelledby="thumbSix-tab">
-                                        <div class="product__details-nav-thumb">
-                                            <img id="zoom_06" src="~/images/products/@imageList[5]" alt="@Model.Title">
-                                        </div>
-                                    </div>
+                                    }        
                                 </div>
                             </div>
                         </div>
@@ -221,7 +178,7 @@
                                                 </div>
                                                 
                                                 <div class="pro-cart-btn mb-25">
-                                                    <button class="add-to-cart t-y-btn" type="submit">Thêm vào giò hàng</button>
+                                                    <a class="add-to-cart t-y-btn" href="https://www.laptopsieure.vn/" target="_blank">Thêm vào giò hàng</a>
                                                     <input hidden asp-for="ProductId" />
                                                 </div>
                                              
@@ -569,36 +526,12 @@
                 toggleLink.textContent = 'Xem chi tiết';
             }
         }
-        $("#zoom_01").ezPlus({
+        $(".zoom_01").ezPlus({
             scrollZoom: true,
             zoomWindowWidth: 350,
             zoomWindowHeight: 350
         });
-         $("#zoom_02").ezPlus({
-            scrollZoom: true,
-            zoomWindowWidth: 350,
-            zoomWindowHeight: 350
-        });
-         $("#zoom_03").ezPlus({
-            scrollZoom: true,
-            zoomWindowWidth: 350,
-            zoomWindowHeight: 350
-        });
-         $("#zoom_04").ezPlus({
-            scrollZoom: true,
-            zoomWindowWidth: 350,
-            zoomWindowHeight: 350
-        });
-        $("#zoom_05").ezPlus({
-            scrollZoom: true,
-            zoomWindowWidth: 350,
-            zoomWindowHeight: 350
-        });
-        $("#zoom_06").ezPlus({
-            scrollZoom: true,
-            zoomWindowWidth: 350,
-            zoomWindowHeight: 350
-        });
+     
     </script>
   
 

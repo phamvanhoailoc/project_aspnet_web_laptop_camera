@@ -474,7 +474,7 @@
     }
     & .header__action ul li{
         &::after{
-            background: #394452;
+            background: #A9A9A9;
         }
         & a{
             color: $black-soft-7;
@@ -494,7 +494,7 @@
         }
     }
     & .header__info{
-        border-color: #394452;
+        border-color: #A9A9A9;
     }
     & .header__search-box input{
         border: none;
@@ -504,7 +504,7 @@
         color: $white;
     }
     & .cart__toggle {
-        border: 2px solid #394452;
+        border: 2px solid #A9A9A9;
         color: $white;
         &::after{
             color: $white;

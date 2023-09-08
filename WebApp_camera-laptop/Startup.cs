@@ -1,4 +1,4 @@
-using AspNetCoreHero.ToastNotification;
+﻿using AspNetCoreHero.ToastNotification;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using System.Threading.Tasks;
+using WebApp_camera_laptop.Middleware;
 using WebApp_camera_laptop.Models;
 
 namespace WebApp_camera_laptop
@@ -62,7 +63,8 @@ namespace WebApp_camera_laptop
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            // Áp dụng Middleware kiểm tra đăng nhập sau khi cấu hình các routes
+            //app.UseMiddleware<AuthenticationMiddleware>();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -73,6 +75,8 @@ namespace WebApp_camera_laptop
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            
         }
     }
 }

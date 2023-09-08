@@ -1402,3 +1402,10 @@ D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminProductCategoris\Edit.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminProductCategoris\Index.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Views\Products\List.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminAccounts\Create.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminAccounts\Delete.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminAccounts\Details.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminAccounts\Edit.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminAccounts\Index.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminAccounts\Login.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LoginAdminLayout.cshtml.g.cs

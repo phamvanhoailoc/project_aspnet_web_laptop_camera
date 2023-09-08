@@ -1,0 +1,28 @@
+﻿@model WebQLKSORACLE.Areas.ADMIN.ModelViews.LoginAdminViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Areas/Admin/Views/Shared/_LoginAdminLayout.cshtml";
+}
+
+<div id="single-wrapper">
+    <form asp-action="Login" class="frm-single">
+        <div class="inside">
+            <div class="frm-title">Đăng nhập</div>
+            <!-- /.frm-title -->
+            <div class="frm-input"><input asp-for="UserName" type="text" placeholder="Nhập tài khoản" class="frm-inp"><i class="fa fa-user frm-ico"></i><span class="text-danger" asp-validation-for="UserName"></span></div>
+            <!-- /.frm-input -->
+            <div class="frm-input"><input asp-for="Password" type="password" placeholder="Nhập mật khẩu" class="frm-inp"><i class="fa fa-lock frm-ico"></i><span class="text-danger" asp-validation-for="Password"></span></div>
+            <!-- /.frm-input -->
+            <!-- /.clearfix -->
+            <button type="submit" class="frm-submit">Đăng nhập<i class="fa fa-arrow-circle-right"></i></button>
+
+            <!-- /.row -->
+
+            <div class="frm-footer">Bản quyền thuộc Công nghệ Phương Vũ © 2023.</div>
+            <!-- /.footer -->
+        </div>
+        <!-- .inside -->
+    </form>
+    <!-- /.frm-single -->
+</div>
+

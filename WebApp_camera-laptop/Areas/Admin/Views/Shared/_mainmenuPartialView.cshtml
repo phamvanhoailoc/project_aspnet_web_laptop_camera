@@ -3,7 +3,7 @@
 *@
 <div class="main-menu">
     <header class="header">
-        <a asp-area="Admin" asp-controller="Home" class="logo">Zeiss</a>
+        <a asp-area="Admin" asp-controller="Home" class="logo">Admin</a>
         <button type="button" class="button-close fa fa-times js__menu_close"></button>
     </header>
     <!-- /.header -->
@@ -12,34 +12,23 @@
         <div class="navigation">
             <ul class="menu js__accordion">
                 <li class="current">
-                    <a class="waves-effect" asp-area="Admin" asp-controller="Home"><i class="menu-icon mdi mdi-view-dashboard"></i><span>Trang chủ</span></a>
+                    <a class="waves-effect" asp-area="Admin" asp-controller="Home" asp-action="Index"><i class="menu-icon mdi mdi-view-dashboard"></i><span>Trang chủ</span></a>
                 </li>
                 <li>
-                    <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-flower"></i><span>Quản lý đơn hàng</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                    <a class="waves-effect parent-item js__control" ><i class="menu-icon mdi mdi-flower"></i><span>Quản lý đơn hàng</span><span class="menu-arrow fa fa-angle-down"></span></a>
                     <ul class="sub-menu js__content">
-                        <li><a href="icons-font-awesome-icons.html">Font Awesome</a></li>
-                        <li><a href="icons-fontello.html">Fontello</a></li>
-                        <li><a href="icons-material-icons.html">Material Design Icons</a></li>
-                        <li><a href="icons-material-design-iconic.html">Material Design Iconic Font</a></li>
-                        <li><a href="icons-themify-icons.html">Themify Icons</a></li>
+                       
                     </ul>
                     <!-- /.sub-menu js__content -->
                 </li>
                 <li>
-                    <a class="waves-effect" href="calendar.html"><i class="menu-icon mdi mdi-calendar-multiple"></i><span>Quản lý khách hàng</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                    <a class="waves-effect" ><i class="menu-icon mdi mdi-calendar-multiple"></i><span>Quản lý khách hàng</span><span class="menu-arrow fa fa-angle-down"></span></a>
                 </li>
                 <li>
-                    <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-chart-bar"></i><span>Quản lý tài khoản</span><span class="menu-arrow fa fa-angle-down"></span></a>
+                    <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-account-box"></i><span>Quản lý tài khoản</span><span class="menu-arrow fa fa-angle-down"></span></a>
                     <ul class="sub-menu js__content">
-                        <li><a href="chart-3d.html">3D Charts</a></li>
-                        <li><a href="chart-chartist.html">Chartist Charts</a></li>
-                        <li><a href="chart-chartjs.html">Chartjs Chart</a></li>
-                        <li><a href="chart-dynamic.html">Dynamic Chart</a></li>
-                        <li><a href="chart-flot.html">Flot Chart</a></li>
-                        <li><a href="chart-knob.html">Knob Chart</a></li>
-                        <li><a href="chart-morris.html">Morris Chart</a></li>
-                        <li><a href="chart-sparkline.html">Sparkline Chart</a></li>
-                        <li><a href="chart-other.html">Other Chart</a></li>
+                        <li><a asp-area="Admin" asp-controller="AdminAccounts" asp-action="Index">Tài khoản nhân viên</a></li>
+   
                     </ul>
                     <!-- /.sub-menu js__content -->
                 </li>
@@ -49,9 +38,7 @@
                         <li><a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index">Quản lý sản phẩm</a></li>
                         <li><a asp-area="Admin" asp-controller="AdminProducers" asp-action="Index">Quản lý nhà sản xuất</a></li>
                         <li><a asp-area="Admin" asp-controller="AdminStatus" asp-action="Index">Quản lý trạng thái sản phẩm</a></li>
-                        <li><a >Sweet Alert</a></li>
-                        <li><a >Tree view</a></li>
-                        <li><a >Widget</a></li>
+
                     </ul>
                     <!-- /.sub-menu js__content -->
                 </li>
@@ -59,12 +46,7 @@
                     <a class="waves-effect parent-item js__control" href="#"><i class="menu-icon mdi mdi-buffer"></i><span>Quản lý danh mục</span><span class="menu-arrow fa fa-angle-down"></span></a>
                     <ul class="sub-menu js__content">
                         <li><a asp-area="Admin" asp-controller="AdminCategories" asp-action="Index">Quản lý danh mục</a></li>
-                        <li><a href="ui-cards.html">Cards</a></li>
-                        <li><a href="ui-checkbox-radio.html">Checkboxs-Radios</a></li>
-                        <li><a href="ui-components.html">Components</a></li>
-                        <li><a href="ui-draggable-cards.html">Draggable Cards</a></li>
-                        <li><a href="ui-modals.html">Modals</a></li>
-                        <li><a href="ui-typography.html">Typography</a></li>
+                 
                     </ul>
                     <!-- /.sub-menu js__content -->
                 <!--</li>-->

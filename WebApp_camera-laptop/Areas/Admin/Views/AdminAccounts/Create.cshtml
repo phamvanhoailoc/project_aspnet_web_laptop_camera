@@ -1,0 +1,110 @@
+﻿@model WebApp_camera_laptop.Areas.Admin.ModelViews.RegisterAdminVM
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- breadcrumb area start -->
+<section class="breadcrumb__area box-plr-75">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="breadcrumb__wrapper">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a asp-action="Index">Danh sách tài khoản</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a></a>Thêm tài khoản</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- breadcrumb area end -->
+<div class="col-xs-12">
+    <div class="box-content">
+        <h4 class="box-title">From tạo tài khoản</h4>
+        <!-- /.box-title -->
+        <!-- /.dropdown js__dropdown -->
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div id="tabsleft" class="tabbable tabs-left">
+                <ul>
+                    <li><a href="#tabsleft-tab1" data-toggle="tab">Trang đầu</a></li>
+
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tabsleft-tab1">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="emailfield">Tên tài khoản</label>
+                                <div class="controls">
+                                    <input type="text" asp-for="TenNv" class="form-control">
+                                </div>
+                                <span asp-validation-for="TenNv" class="text-danger"></span>
+                            </div>
+                          
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="namefield">Địa chỉ Email</label>
+                                <div class="controls">
+                                    <input type="text" asp-for="EmailNv" class="form-control">
+                                </div>
+                                <span asp-validation-for="EmailNv" class="text-danger"></span>
+                            </div>
+                          
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="namefield">Mật khẩu</label>
+                                <div class="controls">
+                                    <input type="password" asp-for="MatkhauNv" class="form-control">
+                                </div>
+                                <span asp-validation-for="MatkhauNv" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="namefield">Nhập lại mật khẩu</label>
+                                <div class="controls">
+                                    <input type="password" asp-for="ConfirmMatkhauNv" class="form-control">
+                                </div>
+                                <span asp-validation-for="ConfirmMatkhauNv" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="form-control" asp-for="RoleId" asp-items="ViewBag.DanhMuc">
+                                <option value="" disabled selected>Chọn quyền</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="switch primary">
+                                <input type="checkbox" asp-for="TrangthaiNv">
+                                <label for="TrangthaiNv">Public</label>
+                            </div>
+                           
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="form-group ">
+                <input type="submit" value="Create" class="btn btn-default" />
+                <a class="btn btn-default" asp-action="Index">Quay lại danh sách nhân viên</a>
+                @*</div>
+                <div class="form-group ">
+                <a class="btn btn-default" asp-action="Index">Quay lại danh sách nhân viên</a>
+                </div>*@
+        </form>
+    </div>
+    <!-- /.box-content -->
+</div>
+
+

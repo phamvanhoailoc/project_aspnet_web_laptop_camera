@@ -173,13 +173,17 @@
                                         foreach (var item in IsBestSell)
                                         {
                                             string url = $"/{item.Alias}-{item.ProductId}.html";
-                                            string[] imageList = item.Thumb.Split(',');
-
-                                            // Kiểm tra nếu danh sách không rỗng và có ít nhất một hình
-                                            if (imageList.Length > 0)
+                                            if (item.Thumb != null)
                                             {
-                                                firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                                string[] imageList = item.Thumb.Split(',');
+
+                                                // Kiểm tra nếu danh sách không rỗng và có ít nhất một hình
+                                                if (imageList.Length > 0)
+                                                {
+                                                    firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                                }
                                             }
+                                            
                                             
                                             <li class="product__sm-item d-flex align-items-center">
                                                 <div class="product__sm-thumb mr-20">

@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace DiChoSaiGon.Helpper
+namespace WebApp_camera_laptop.Helpper
 {
     public static class Utilities
     {

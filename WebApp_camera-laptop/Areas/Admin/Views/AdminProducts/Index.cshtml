@@ -64,9 +64,9 @@
                         <td>Không có dữ liệu</td>
                     }
                     <td>@item.UnitslnStock</td>
-                    @if (item.StatusId != null)
+                    @if (item.Active != null)
                     {
-                        <td>@item.Status.StatusName</td>
+                        <td>@item.Active</td>
                     }
                     else
                     {
@@ -75,9 +75,14 @@
 
 
                     <td class="d-grid gap-2">
-                        <a class="btn btn-info btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">View</a>
-                        <a class="btn btn-primary btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">Edit</a>
-                        <a class="btn btn-danger btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
+                        <div class="btn-group margin-top-10">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hành động <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">Chi tiết</a></li>
+                                <li><a asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">Chỉnh sửa</a></li>
+                                <li><a asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">Xóa</a></li>
+                            </ul>
+                        </div>
                     </td>
                 </tr>
                     }

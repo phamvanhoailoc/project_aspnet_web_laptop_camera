@@ -235,18 +235,26 @@
                                  @if (Model.Products != null && Model.Products.Count() > 0)
                                 {
                                      string firstImage = null;
-                                            string SeconImage = null;
+                                     string SeconImage = null;
                                     foreach (var item in Model.Products)
                                     {
                                         string url = $"/{item.Alias}-{item.ProductId}.html";
-                                        string[] imageList = item.Thumb.Split(',');
-
-                                        // Kiểm tra nếu danh sách không rỗng và có ít nhất một hình
-                                        if (imageList.Length > 0)
+                                        if (item.Thumb != null)
                                         {
-                                            firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
-                                            SeconImage = imageList[1];// Lấy hình thu 2 từ danh sách
+                                            string[] imageList = item.Thumb.Split(',');
+
+                                            if (imageList.Length >= 1)
+                                            {
+                                                firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                            }
+
+                                            if (imageList.Length >= 2)
+                                            {
+                                                SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                            }
+
                                         }
+                                        
                                         <div class="product__item product__item-2 white-bg">
                                             <div class="product__thumb p-relative">
                                                 <a href="@url" class="w-img">
@@ -346,14 +354,21 @@
                                     foreach (var item in Model.Products)
                                     {
                                         string url = $"/{item.Alias}-{item.ProductId}.html";
-                                        string[] imageList = item.Thumb.Split(',');
-
-                                        // Kiểm tra nếu danh sách không rỗng và có ít nhất một hình
-                                        if (imageList.Length > 0)
+                                        if (item.Thumb != null)
                                         {
-                                            firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
-                                            SeconImage = imageList[1];// Lấy hình thu 2 từ danh sách
+                                            string[] imageList = item.Thumb.Split(',');
+
+                                            if (imageList.Length >= 1)
+                                            {
+                                                firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                            }
+
+                                            if (imageList.Length >= 2)
+                                            {
+                                                SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                            }
                                         }
+                                        
                                         <div class="product__item product__item-2 white-bg">
                                             <div class="product__thumb p-relative">
                                                 <a href="@url" class="w-img">
@@ -453,14 +468,21 @@
                                     foreach (var item in Model.Products)
                                     {
                                         string url = $"/{item.Alias}-{item.ProductId}.html";
-                                        string[] imageList = item.Thumb.Split(',');
-
-                                        // Kiểm tra nếu danh sách không rỗng và có ít nhất một hình
-                                        if (imageList.Length > 0)
+                                        if (item.Thumb != null)
                                         {
-                                            firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
-                                            SeconImage = imageList[1];// Lấy hình thu 2 từ danh sách
+                                            string[] imageList = item.Thumb.Split(',');
+
+                                            if (imageList.Length >= 1)
+                                            {
+                                                firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                            }
+
+                                            if (imageList.Length >= 2)
+                                            {
+                                                SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                            }
                                         }
+                                        
                                         <div class="product__item product__item-2 white-bg">
                                             <div class="product__thumb p-relative">
                                                 <a href="@url" class="w-img">
@@ -603,33 +625,6 @@
         </div>
     </section>
     <!-- blog area end -->
-    <!-- subscribe area start -->
-    <section class="subscribe__area pt-35 pb-30">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6">
-                    <div class="subscribe__content d-sm-flex align-items-center">
-                        <div class="subscribe__icon mr-25">
-                            <img src="~/assets/template/img/icon/icon_email.png" alt="" />
-                        </div>
-                        <div class="subscribe__text">
-                            <h4>Sign up to Newsletter</h4>
-                            <p>Get email updates about our latest shop...and receive <span>$30 Coupon For First Shopping</span></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="subscribe__form f-right">
-                        <form action="#">
-                            <input type="email" placeholder="Enter your email here..." />
-                            <button class="t-y-btn t-y-btn-sub">subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- subscribe area end -->
     <!-- back to top btn area start -->
     <section class="back-btn-top">
         <div class="container-fluid p-0">

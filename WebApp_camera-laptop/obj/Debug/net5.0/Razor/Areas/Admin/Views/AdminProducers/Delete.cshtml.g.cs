@@ -27,7 +27,7 @@ using WebApp_camera_laptop.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4e923b6c807a8a8430d35fbb9d025532f05699d2", @"/Areas/Admin/Views/AdminProducers/Delete.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"59cef2f77e26656413299c86504eadb8985bad94", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0df5cbd91de3faf3d2dff076df0f8ef7b9e65e2c", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Admin_Views_AdminProducers_Delete : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<WebApp_camera_laptop.Models.Producer>
     #nullable disable

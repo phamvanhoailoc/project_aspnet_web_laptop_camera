@@ -40,6 +40,7 @@ namespace WebApp_camera_laptop.Controllers
                     .ToList(); 
 
                 model.Products = IsProducts;
+                model.SetDefaultThumbValues();
                 model.Categories = hierarchicalCategories;
                 return View(model);
             }

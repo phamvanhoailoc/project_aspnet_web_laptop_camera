@@ -34,6 +34,9 @@
     <link rel="stylesheet" href="~/assets/admin/plugin/fullcalendar/fullcalendar.min.css">
     <link rel="stylesheet" href="~/assets/admin/plugin/fullcalendar/fullcalendar.print.css" media='print'>
 
+    <!-- Select2 -->
+    <link rel="stylesheet" href="~/assets/admin/plugin/select2/css/select2.min.css">
+
     <!-- Dark Themes -->
     <link rel="stylesheet" href="~/assets/admin/styles/style-dark.min.css">
     @await RenderSectionAsync("Styles", required: false)
@@ -312,6 +315,17 @@
     <!-- Sparkline Chart -->
     <script src="~/assets/admin/plugin/chart/sparkline/jquery.sparkline.min.js"></script>
     <script src="~/assets/admin/scripts/chart.sparkline.init.min.js"></script>
+
+    <!-- Flex Datalist -->
+    <script src="~/assets/admin/plugin/flexdatalist/jquery.flexdatalist.min.js"></script>
+
+    <!-- Popover -->
+    <script src="~/assets/admin/plugin/popover/jquery.popSelect.min.js"></script>
+
+    <!-- Select2 -->
+    <script src="~/assets/admin/plugin/select2/js/select2.min.js"></script>
+
+    <script src="~/assets/admin/scripts/form.demo.min.js"></script>
 
     <script src="~/assets/admin/scripts/main.min.js"></script>
     @await Component.InvokeAsync("Notyf")

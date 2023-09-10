@@ -34,7 +34,7 @@ using PagedList.Core.Mvc;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8e8feff44e01b6dafff52647631e2a6e2d49a97a", @"/Areas/Admin/Views/AdminAccounts/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"59cef2f77e26656413299c86504eadb8985bad94", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0df5cbd91de3faf3d2dff076df0f8ef7b9e65e2c", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Areas_Admin_Views_AdminAccounts_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PagedList.Core.IPagedList<WebApp_camera_laptop.Models.Account>>
     #nullable disable
@@ -48,6 +48,7 @@ using PagedList.Core.Mvc;
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_6 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Create", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_7 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-primary btn-xs waves-effect waves-light"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_8 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "Edit", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+        private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_9 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("pager-container"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
         #line hidden
         #pragma warning disable 0649
         private global::Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext __tagHelperExecutionContext;
@@ -71,6 +72,7 @@ using PagedList.Core.Mvc;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper;
+        private global::PagedList.Core.Mvc.PagerTagHelper __PagedList_Core_Mvc_PagerTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -95,7 +97,7 @@ using PagedList.Core.Mvc;
                     <nav aria-label=""breadcrumb"">
                         <ol class=""breadcrumb"">
                             <li class=""breadcrumb-item"">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e8feff44e01b6dafff52647631e2a6e2d49a97a7650", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e8feff44e01b6dafff52647631e2a6e2d49a97a8101", async() => {
                 WriteLiteral("Trang chính");
             }
             );
@@ -122,7 +124,7 @@ using PagedList.Core.Mvc;
     </div>
 </section>
 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e8feff44e01b6dafff52647631e2a6e2d49a97a9281", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e8feff44e01b6dafff52647631e2a6e2d49a97a9732", async() => {
                 WriteLiteral(@"
     <div class=""form-group col-md-3"">
         <div class=""input-group margin-bottom-3"">
@@ -167,7 +169,7 @@ using PagedList.Core.Mvc;
 #line hidden
 #nullable disable
             WriteLiteral("</caption>\r\n    <div class=\"dropdown js__drop_down\" style=\"padding-top: 13px\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e8feff44e01b6dafff52647631e2a6e2d49a97a12210", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e8feff44e01b6dafff52647631e2a6e2d49a97a12661", async() => {
                 WriteLiteral("Thêm tài khoản");
             }
             );
@@ -274,7 +276,7 @@ using PagedList.Core.Mvc;
 #nullable disable
             WriteLiteral("</td>\r\n                    <td width=\"230px\">\r\n");
             WriteLiteral("                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e8feff44e01b6dafff52647631e2a6e2d49a97a17101", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e8feff44e01b6dafff52647631e2a6e2d49a97a17552", async() => {
                 WriteLiteral("Edit");
             }
             );
@@ -327,17 +329,35 @@ using PagedList.Core.Mvc;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("</div>\r\n    </div>\r\n    <div class=\"col-sm-7\">\r\n        <div class=\"dataTables_paginate paging_simple_numbers\" id=\"example_paginate\">\r\n            <ul class=\"pagination\">\r\n                <pager class=\"pager-container\"");
-            BeginWriteAttribute("list", " list=\"", 4181, "\"", 4194, 1);
+            WriteLiteral("</div>\r\n    </div>\r\n    <div class=\"col-sm-7\">\r\n        <div class=\"dataTables_paginate paging_simple_numbers\" id=\"example_paginate\">\r\n            <ul class=\"pagination\">\r\n                ");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("pager", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e8feff44e01b6dafff52647631e2a6e2d49a97a21479", async() => {
+            }
+            );
+            __PagedList_Core_Mvc_PagerTagHelper = CreateTagHelper<global::PagedList.Core.Mvc.PagerTagHelper>();
+            __tagHelperExecutionContext.Add(__PagedList_Core_Mvc_PagerTagHelper);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_9);
 #nullable restore
 #line 103 "D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\Areas\Admin\Views\AdminAccounts\Index.cshtml"
-WriteAttributeValue("", 4188, Model, 4188, 6, false);
+__PagedList_Core_Mvc_PagerTagHelper.List = Model;
 
 #line default
 #line hidden
 #nullable disable
-            EndWriteAttribute();
-            WriteLiteral(" asp-area=\"Admin\" asp-controller=\"AdminAccounts\" asp-action=\"Index\"></pager>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
+            __tagHelperExecutionContext.AddTagHelperAttribute("list", __PagedList_Core_Mvc_PagerTagHelper.List, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __PagedList_Core_Mvc_PagerTagHelper.AspArea = (string)__tagHelperAttribute_0.Value;
+            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_0);
+            __PagedList_Core_Mvc_PagerTagHelper.AspController = (string)__tagHelperAttribute_5.Value;
+            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_5);
+            __PagedList_Core_Mvc_PagerTagHelper.AspAction = (string)__tagHelperAttribute_2.Value;
+            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            WriteLiteral("\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>\r\n");
         }
         #pragma warning restore 1998
         #nullable restore

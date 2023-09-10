@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using AspNetCoreHero.ToastNotification.Abstractions;
 using DiChoSaiGon.Extension;
-using DiChoSaiGon.Helpper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -16,6 +15,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PagedList.Core;
 using WebApp_camera_laptop.Areas.Admin.ModelViews;
+using WebApp_camera_laptop.Helpper;
 using WebApp_camera_laptop.Models;
 using WebQLKSORACLE.Areas.ADMIN.ModelViews;
 
@@ -241,12 +241,14 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
             var taikhoanID = HttpContext.Session.GetString("Id");
             if (taikhoanID != null)
             {
-                return RedirectToAction("Index", "AdminNhanviens");
+                return RedirectToAction("Index", "AdminAccounts");
             }
 
             return View();
         }
+
         [HttpPost]
+        [Route("Login", Name = "Login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginAdminViewModel customer, string returnUrl = null)
         {
@@ -254,13 +256,13 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    bool isEmail = Utilities.IsValidEmail(customer.UserName);
-                    if (!isEmail) return View(customer);
+                    //bool isEmail = Utilities.IsValidEmail(customer.UserName);
+                    //if (!isEmail) return View(customer);
                     var taikhoan = _context.Accounts.AsNoTracking().SingleOrDefault(x => x.Email.Trim() == customer.UserName);
                     if (taikhoan == null)
                     {
                         _notyfService.Error("Thông tin đăng nhập chưa chính xác");
-                        return RedirectToAction("Login", "AdminNhanviens");
+                        return RedirectToAction("Login", "AdminAccounts");
                     }
 
                     string pass = (customer.Password + taikhoan.Salt.Trim()).ToMD5();
@@ -273,7 +275,7 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
                     if (taikhoan.Active == false)
                     {
                         _notyfService.Error("Đăng nhập thất bại");
-                        return RedirectToAction("Login", "AdminNhanviens");
+                        return RedirectToAction("Login", "AdminAccounts");
                     }
 
                     //luu session
@@ -290,13 +292,13 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
                     ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
                     await HttpContext.SignInAsync(claimsPrincipal);
                     _notyfService.Success("Đăng nhập thành công");
-                    return RedirectToAction("Index", "AdminNhanviens");
+                    return RedirectToAction("Index", "Home");
                 }
             }
             catch
             {
                 _notyfService.Error("Đăng nhập thất bại");
-                return RedirectToAction("Login", "AdminNhanviens");
+                return RedirectToAction("Login", "AdminAccounts");
             }
             return View(customer);
         }

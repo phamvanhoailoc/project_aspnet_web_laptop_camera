@@ -67,6 +67,10 @@
                                             {
                                                 firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
                                             }
+                                            else
+                                            {
+                                                firstImage = "default.jpg";
+                                            }
 
                                             <li class="product__sm-item d-flex align-items-center">
                                                 <div class="product__sm-thumb mr-20">
@@ -142,14 +146,31 @@
                                                 if (imageList.Length > 0)
                                                 {
                                                     firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
-                                                    SeconImage = imageList[1];// Lấy hình thu 2 từ danh sách
+
+                                                    // Kiểm tra nếu danh sách có ít nhất hai hình
+                                                    if (imageList.Length > 1)
+                                                    {
+                                                        SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                                    }
+                                                    else
+                                                    {
+                                                        // Nếu chỉ có một hình, gán hình mặc định cho hình thứ hai
+                                                        SeconImage = "default.jpg"; // Thay đổi "default.jpg" thành tên tập tin hình ảnh mặc định thực tế
+                                                    }
                                                 }
+                                                else
+                                                {
+                                                    // Nếu danh sách rỗng, gán cả hai hình mặc định
+                                                    firstImage = "default.jpg"; // Thay đổi "default.jpg" thành tên tập tin hình ảnh mặc định thực tế
+                                                    SeconImage = "default.jpg"; // Thay đổi "default.jpg" thành tên tập tin hình ảnh mặc định thực tế
+                                                }
+                                               
                                                 <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4">
                                                     <div class="product__item white-bg mb-30">
                                                         <div class="product__thumb p-relative">
                                                             <a href="@url" class="w-img">
-                                                                <img src="~/images/products/@firstImage" alt="@item.Title">
-                                                                <img class="second-img" src="~/images/products/@SeconImage" alt="@item.Title">
+                                                                <img style="width:172px; height:172px;" src="~/images/products/@firstImage" alt="@item.Title">
+                                                                <img style="width:172px; height:172px;" class="second-img" src="~/images/products/@SeconImage" alt="@item.Title">
                                                             </a>
                                                             <div class="product__action p-absolute">
                                                                 <ul>
@@ -195,13 +216,29 @@
                                                     if (imageList.Length > 0)
                                                     {
                                                         firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
-                                                        SeconImage = imageList[1];// Lấy hình thu 2 từ danh sách
+
+                                                        // Kiểm tra nếu danh sách có ít nhất hai hình
+                                                        if (imageList.Length > 1)
+                                                        {
+                                                            SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                                        }
+                                                        else
+                                                        {
+                                                            // Nếu chỉ có một hình, gán hình mặc định cho hình thứ hai
+                                                            SeconImage = "default.jpg"; // Thay đổi "default.jpg" thành tên tập tin hình ảnh mặc định thực tế
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        // Nếu danh sách rỗng, gán cả hai hình mặc định
+                                                        firstImage = "default.jpg"; // Thay đổi "default.jpg" thành tên tập tin hình ảnh mặc định thực tế
+                                                        SeconImage = "default.jpg"; // Thay đổi "default.jpg" thành tên tập tin hình ảnh mặc định thực tế
                                                     }
                                                     <div class="product__item product__list white-bg mb-30 d-md-flex">
                                                         <div class="product__thumb p-relative mr-20">
                                                             <a href="@url" class="w-img">
-                                                                <img src="~/images/products/@firstImage" alt="@item.Title">
-                                                                <img class="second-img" src="~/images/products/@SeconImage" alt="@item.Title">
+                                                                <img style="width:172px; height:172px;"  src="~/images/products/@firstImage" alt="@item.Title">
+                                                                <img style="width:172px; height:172px;" class="second-img" src="~/images/products/@SeconImage" alt="@item.Title">
                                                             </a>
                                                         </div>
                                                         <div class="product__content">

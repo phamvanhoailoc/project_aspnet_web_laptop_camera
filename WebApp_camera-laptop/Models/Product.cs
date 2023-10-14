@@ -24,9 +24,9 @@ namespace WebApp_camera_laptop.Models
         public string Video { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
-        public bool BestSellers { get; set; }
-        public bool HomeFlag { get; set; }
-        public bool Active { get; set; }
+        public bool? BestSellers { get; set; }
+        public bool? HomeFlag { get; set; }
+        public bool? Active { get; set; }
         public string Tags { get; set; }
         public string Title { get; set; }
         public string Alias { get; set; }
@@ -49,10 +49,11 @@ namespace WebApp_camera_laptop.Models
         public string DeviceSupport { get; set; }
         public string ControlPhone { get; set; }
         public string Utilities { get; set; }
-        public bool Conversation { get; set; }
+        public bool? Conversation { get; set; }
         public string Adapter { get; set; }
         public string InputPower { get; set; }
         public string Size { get; set; }
+        public string Configuration { get; set; }
 
         public virtual Producer Producer { get; set; }
         public virtual Status Status { get; set; }

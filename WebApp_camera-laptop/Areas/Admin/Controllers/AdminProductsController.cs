@@ -149,7 +149,7 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
                         HomeFlag = product.HomeFlag,
                         Active = product.Active,
                         Tags = product.Tags,
-                        Title = product.Title,
+                        Title = product.ProductName,
                         MetaDesc = product.MetaDesc,
                         MetaKey = product.MetaKey,
                         UnitslnStock = product.UnitslnStock,

@@ -18,6 +18,20 @@
             border-radius: 16px;
             margin: 10px auto 0;
         }
+
+        .brand__slider .brand__item {
+            width: 180px; /* Đặt kích thước của khung chứa ảnh */
+            height: 60px;
+            overflow: hidden; /* Ẩn phần ngoài khung */
+        }
+
+        .brand__slider .brand__item img {
+           width: 100%; /* Đặt chiều rộng của ảnh là 100% để lấp đầy toàn bộ khung */
+            height: 60px; /* Tự động tính toán chiều cao dựa trên tỷ lệ khung hình */
+            object-fit: cover; /* Đảm bảo ảnh lấp đầy toàn bộ khung mà không biến dạng */
+            opacity:1.2;
+
+        }
         
     </style>
 }
@@ -173,39 +187,39 @@
     <!-- features area end -->
     <!-- banner area start -->
     <section class="brand__area">
-        <div class="container">
+       @* <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="brand__slider owl-carousel">
                         <div class="brand__item">
-                            <img style="opacity:1.2" src="~/assets/template/img/brand/acer.png" alt="">
+                            <img  src="~/assets/template/img/brand/acer.jpg" alt="">
                         </div>
                         <div class="brand__item">
-                            <img style="opacity:1.2" src="~/assets/template/img/brand/asus.jpg" alt="">
+                            <img src="~/assets/template/img/brand/asus.png" alt="">
                         </div>
                         <div class="brand__item">
-                            <img  style="opacity:1.2" src="~/assets/template/img/brand/dell.png" alt="">
+                            <img  src="~/assets/template/img/brand/dell.png" alt="">
                         </div>
                         <div class="brand__item">
-                            <img style="opacity:1.2" src="~/assets/template/img/brand/hp.png" alt="">
+                            <img src="~/assets/template/img/brand/hp.png" alt="">
                         </div>
                          <div class="brand__item">
-                            <img style="opacity:1.2" src="~/assets/template/img/brand/Lenovo.png" alt="">
+                            <img  src="~/assets/template/img/brand/Lenovo.png" alt="">
                         </div>
                          <div class="brand__item">
-                            <img style="opacity:1.2" src="~/assets/template/img/brand/lg.jpg" alt="">
+                            <img src="~/assets/template/img/brand/lg.png" alt="">
                         </div>
                          <div class="brand__item">
-                            <img style="opacity:1.2" src="~/assets/template/img/brand/macbook.png" alt="">
+                            <img src="~/assets/template/img/brand/macbook.png" alt="">
                         </div>
                         <div class="brand__item">
-                            <img style="opacity:1.2" src="~/assets/template/img/brand/thinkpad.png" alt="">
+                            <img src="~/assets/template/img/brand/thinkpad.png" alt="">
                         </div>
 
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
     </section>
     <!-- banner area end -->
     <!-- best selling area start -->
@@ -215,7 +229,7 @@
                 <div class="col-xl-12">
                     <div class="section__head d-md-flex justify-content-between mb-40">
                         <div class="section__title">
-                            <h3>Laptop<span> Mới</span></h3>
+                            <h3>Laptop<span></span></h3>
                         </div>
                         <div class="product__nav-tab mr-75">
                             <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
@@ -288,7 +302,7 @@
     <!-- best selling area end -->
     <!-- banner area start -->
     <section class="brand__area">
-        <div class="container">
+       @* <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="brand__slider owl-carousel">
@@ -320,7 +334,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
     </section>
     <!-- banner area end -->
     <!-- deal off the day area start -->
@@ -330,7 +344,7 @@
                 <div class="col-xl-12">
                     <div class="section__head d-md-flex justify-content-between mb-40">
                         <div class="section__title">
-                            <h3>Camera<span> Mới</span></h3>
+                            <h3>Camera<span> </span></h3>
                         </div>
                         <div class="product__nav-tab mr-75">
                             <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
@@ -402,7 +416,7 @@
     <!-- deal off the day area end -->
     <!-- banner area start -->
     <section class="brand__area">
-        <div class="container">
+       @* <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="brand__slider owl-carousel">
@@ -434,7 +448,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
     </section>
     <!-- banner area end -->
     <!-- onsale product area start -->
@@ -444,7 +458,7 @@
                 <div class="col-xl-12">
                     <div class="section__head d-md-flex justify-content-between mb-40">
                         <div class="section__title">
-                            <h3>Laptop<span> Bán chạy</span></h3>
+                            <h3>Máy bộ<span></span></h3>
                         </div>
                         <div class="product__nav-tab mr-75">
                             <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
@@ -502,6 +516,83 @@
                                           @*  <div class="product__add-btn">
                                                 <button type="button">Thêm vào giỏ hàng</button>
                                             </div>*@
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- onsale product area end -->
+    <!-- onsale product area start -->
+    <section class="onsell__area pt-15 pb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section__head d-md-flex justify-content-between mb-40">
+                        <div class="section__title">
+                            <h3>Máy văn phòng<span></span></h3>
+                        </div>
+                        <div class="product__nav-tab mr-75">
+                            <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button" role="tab" aria-controls="new" aria-selected="true">New Arrival</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="tab-content" id="best-sell-tabContent">
+                        <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
+                            <div class="product__slider owl-carousel">
+                                @if (Model.Products != null && Model.Products.Count() > 0)
+                                {
+                                    string firstImage = null;
+                                    string SeconImage = null;
+                                    foreach (var item in Model.Products)
+                                    {
+                                        string url = $"/{item.Alias}-{item.ProductId}.html";
+                                        if (item.Thumb != null)
+                                        {
+                                            string[] imageList = item.Thumb.Split(',');
+
+                                            if (imageList.Length >= 1)
+                                            {
+                                                firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                            }
+
+                                            if (imageList.Length >= 2)
+                                            {
+                                                SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                            }
+                                        }
+
+                                        <div class="product__item product__item-2 white-bg">
+                                            <div class="product__thumb p-relative">
+                                                <a href="@url" class="w-img">
+                                                    <img src="~/images/products/@firstImage" alt="@item.Title" />
+                                                    <img class="second-img" src="~/images/products/@SeconImage" alt="@item.Title" />
+                                                </a>
+
+                                            </div>
+                                            <div class="product__content text-center">
+                                                <h6 class="product-name">
+                                                    <a class="product-item-link" href="@url">@item.ProductName</a>
+                                                </h6>
+
+                                                <span class="price" style="text-decoration: line-through">@item.Price.Value.ToString("#,###") VND</span>
+                                                <span class="price item-price" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
+                                            </div>
+                                            @*  <div class="product__add-btn">
+                                    <button type="button">Thêm vào giỏ hàng</button>
+                                    </div>*@
                                         </div>
                                     }
                                 }

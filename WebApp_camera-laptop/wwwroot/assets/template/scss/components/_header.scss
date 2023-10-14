@@ -463,6 +463,76 @@
   }
 }
 
+/* yellow header css start */
+.greyWhite-header{
+    background: $grey-5;
+    & .header__info{
+      border-color: rgba(237,237,237,0.9);
+    }
+    & .header__welcome{
+      & span{
+        color: $black;
+      }
+    }
+    & .header__action ul li {
+        &::after{
+            background: rgba(237,237,237,0.9);
+        }
+      & a{
+          color: $black;
+          &:hover{
+            color: $t-yellow;
+          }
+      }
+      &::after{
+        background: rgba(237,237,237,0.9);
+      }
+    }
+    & .header__hotline-icon i{
+      color: $black;
+    }
+    & .header__hotline-info span {
+        color: $black;
+    }
+    & .header__search-box button {
+        background: $black;
+      color: $t-yellow;
+    }
+    & .cart__toggle {
+      border-color: rgba(237,237,237,0.9);
+      &:hover{
+        border-color: $t-yellow;
+      }
+    }
+    & .cart__toggle.cart__toggle-open {
+        background: transparent;
+        color: #d69c00;
+        border-color: #d69c00;
+    }
+    & .cart__total-item {
+        color: $t-yellow;
+        background: $black;
+    }
+    & .cart__content {
+      & span{
+        color: $black;
+      }
+    }
+    & .header__currency::before {
+        background: rgba(237,237,237,0.9);
+    }
+    & .header__currency,
+    & .header__lang{
+        & .nice-select{
+          background: transparent;
+          color: $black;
+          &::after{
+              border-color: $black;
+          }
+        }
+    }
+  }
+
 
 /* grey header css start */
 .grey-header{

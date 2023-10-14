@@ -58,7 +58,7 @@
                     <div class="col-xxl-5 col-xl-5 col-lg-5">
                         <div class="product__details-nav d-sm-flex align-items-start">
                             <ul class="nav nav-tabs flex-sm-column justify-content-between" id="productThumbTab" role="tablist">
-                                 @for (var i = 0; i < 6; i++)
+                                 @for (var i = 0; i < imageList.Length; i++)
                                 {
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link @((i == 0) ? "active" : "")" id="thumb@(i + 1)-tab" data-bs-toggle="tab" data-bs-target="#thumb@(i + 1)" type="button" role="tab" aria-controls="thumb@(i + 1)" aria-selected="@(i == 0)">
@@ -71,7 +71,7 @@
                             </ul>
                             <div class="product__details-thumb">
                                 <div class="tab-content" id="productThumbContent">
-                                    @for (var i = 0; i < 6; i++)
+                                    @for (var i = 0; i < imageList.Length; i++)
                                     {
                                         <div class="tab-pane fade @(i == 0 ? "show active" : "")" id="thumb@(i + 1)" role="tabpanel" aria-labelledby="thumb@(i + 1)-tab">
                                             <div class="product__details-nav-thumb">
@@ -317,7 +317,23 @@
                                 if (imageList.Length > 0)
                                 {
                                     firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
-                                    SeconImage = imageList[1];// Lấy hình thu 2 từ danh sách
+
+                                    // Kiểm tra nếu danh sách có ít nhất hai hình
+                                    if (imageList.Length > 1)
+                                    {
+                                        SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                    }
+                                    else
+                                    {
+                                        // Nếu chỉ có một hình, gán hình mặc định cho hình thứ hai
+                                        SeconImage = "default.jpg"; // Thay đổi "default.jpg" thành tên tập tin hình ảnh mặc định thực tế
+                                    }
+                                }
+                                else
+                                {
+                                    // Nếu danh sách rỗng, gán cả hai hình mặc định
+                                    firstImage = "default.jpg"; // Thay đổi "default.jpg" thành tên tập tin hình ảnh mặc định thực tế
+                                    SeconImage = "default.jpg"; // Thay đổi "default.jpg" thành tên tập tin hình ảnh mặc định thực tế
                                 }
                                 <div class="product__item white-bg mb-30">
                                     <div class="product__thumb p-relative">

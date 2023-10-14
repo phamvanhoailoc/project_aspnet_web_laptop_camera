@@ -99,6 +99,9 @@ namespace WebApp_camera_laptop.Models
                 entity.Property(e => e.Thumb).HasMaxLength(250);
 
                 entity.Property(e => e.Title).HasMaxLength(250);
+                entity.HasOne(c => c.ParentCategory)
+                       .WithMany(c => c.Subcategories)
+                       .HasForeignKey(c => c.ParentId);
             });
 
             modelBuilder.Entity<Customer>(entity =>

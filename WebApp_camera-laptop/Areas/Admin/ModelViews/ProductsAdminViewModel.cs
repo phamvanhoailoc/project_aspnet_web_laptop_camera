@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApp_camera_laptop.Areas.Admin.ModelViews
 {
     public class ProductsAdminViewModel
     {
         public int ProductId { get; set; }
+
+        [MaxLength(250)]
+        [Required(ErrorMessage = "Tên sản phẩm không thể bỏ trống")]
         public string ProductName { get; set; }
+        [MaxLength(250, ErrorMessage = "Mô tả ngắn không được quá 250 ký tự")]
         public string ShortDesc { get; set; }
         public string Description { get; set; }
         public int? CatId { get; set; }
@@ -45,6 +50,7 @@ namespace WebApp_camera_laptop.Areas.Admin.ModelViews
         public string Adapter { get; set; }
         public string InputPower { get; set; }
         public string Size { get; set; }
+        public string Configuration { get; set; }
         public List<int> ProductCategories { get; set; }
 
     }

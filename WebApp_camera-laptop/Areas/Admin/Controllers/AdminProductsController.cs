@@ -112,27 +112,48 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    if (fThumb != null)
+                    if (fThumb != null )
                     {
                         List<IFormFile> files = Request.Form.Files.ToList();
-                        List<string> uploadedFileNames = new List<string>();
-                        int imageIndex = 1;
-                        foreach (var file in files)
+                        if (files != null && files.Count() > 1)
                         {
-                            string extension = Path.GetExtension(file.FileName);
-                            string baseImageName = Utilities.SEOUrl(product.ProductName);
-                            string image = baseImageName + "_" + imageIndex.ToString() + extension;
+                            List<string> uploadedFileNames = new List<string>();
+                            int imageIndex = 1;
+                            foreach (var file in files)
+                            {
+                                string extension = Path.GetExtension(file.FileName);
+                                string baseImageName = Utilities.SEOUrl(product.ProductName);
+                                string image = baseImageName + "_" + imageIndex.ToString() + extension;
 
-                            string uploadedFileName = await Utilities.UploadFile(file, @"products", image);
-                            uploadedFileNames.Add(uploadedFileName);
-                            imageIndex++;
+                                string uploadedFileName = await Utilities.UploadFile(file, @"products", image);
+                                uploadedFileNames.Add(uploadedFileName);
+                                imageIndex++;
+                            }
+                            string thumbString = string.Join(",", uploadedFileNames);
+                            product.Thumb = thumbString;
                         }
-                        string thumbString = string.Join(",", uploadedFileNames);
-                        product.Thumb = thumbString;
+                        else {
+                            _notyfService.Error("Phải thêm tối thiểu 2 ảnh !!!");
+                            return View(product);
+                        }
+                        
+                    }
+                    else
+                    {
+                        _notyfService.Error("Phải thêm tối thiểu 2 ảnh !!!");
+                        return View(product);
                     }
                     product.Alias = Utilities.SEOUrl(product.ProductName);
                     product.DateModified = DateTime.Now;
                     product.DateCreated = DateTime.Now;
+
+                    if (product.Discount == null) {
+                        product.Discount = product.Price;
+                    }
+                    if (product.Price == null && product.Discount !=null)
+                    {
+                        product.Price = product.Discount;
+                    }
 
                     Product products = new Product
                     {
@@ -173,6 +194,7 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
                         Adapter = product.Adapter,
                         InputPower = product.InputPower,
                         Size = product.Size,
+                        Configuration = product.Configuration
                     };
                     _context.Add(products);
                     await _context.SaveChangesAsync();
@@ -225,10 +247,52 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
                 {
                     return NotFound();
                 }
-                ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatId", product.CatId);
-                ViewData["ProducerId"] = new SelectList(_context.Producers, "ProducerId", "ProducerId", product.ProducerId);
-                ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusId", product.StatusId);
-                return View(product);
+                ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatName", product.CatId);
+                ViewData["ProducerId"] = new SelectList(_context.Producers, "ProducerId", "ProducerName", product.ProducerId);
+                ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusName", product.StatusId);
+                return View(new ProductsAdminViewModel
+                {
+                    // Sao chép dữ liệu từ đối tượng sản phẩm vào ProductsAdminViewModel
+                    ProductId = product.ProductId,
+                    ProductName = product.ProductName,
+                    Thumb = product.Thumb,
+                    Alias = product.Alias,
+                    DateCreated = product.DateCreated,
+                    DateModified = product.DateModified,
+                    ShortDesc = product.ShortDesc,
+                    Description = product.Description,
+                    Price = product.Price,
+                    Discount = product.Discount,
+                    BestSellers = (bool)product.BestSellers,
+                    HomeFlag = (bool)product.HomeFlag,
+                    Active = (bool)product.Active,
+                    Tags = product.Tags,
+                    Title = product.ProductName,
+                    MetaDesc = product.MetaDesc,
+                    MetaKey = product.MetaKey,
+                    UnitslnStock = product.UnitslnStock,
+                    ProducerId = product.ProducerId,
+                    StatusId = product.StatusId,
+                    Cpu = product.Cpu,
+                    Ram = product.Ram,
+                    HardDrive = product.HardDrive,
+                    GraphicCard = product.GraphicCard,
+                    Screen = product.Screen,
+                    Location = product.Location,
+                    TypeCameraId = product.TypeCameraId,
+                    Resoluton = product.Resoluton,
+                    CameraAngle = product.CameraAngle,
+                    Storege = product.Storege,
+                    FarInfraredVision = product.FarInfraredVision,
+                    DeviceSupport = product.DeviceSupport,
+                    ControlPhone = product.ControlPhone,
+                    Utilities = product.Utilities,
+                    Conversation = (bool)product.Conversation,
+                    Adapter = product.Adapter,
+                    InputPower = product.InputPower,
+                    Size = product.Size,
+                    Configuration = product.Configuration
+                });
             } catch (Exception ex) { return View("Error"); }
             
         }
@@ -238,37 +302,108 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ShortDesc,Description,CatId,Price,Discount,Thumb,Video,DateCreated,DateModified,BestSellers,HomeFlag,Active,Tags,Title,Alias,MetaDesc,MetaKey,UnitslnStock,ProducerId,StatusId,Cpu,Ram,HardDrive,GraphicCard,Screen,Location,TypeCameraId,Resoluton,CameraAngle,Storege,FarInfraredVision,DeviceSupport,ControlPhone,Utilities,Conversation,Adapter,InputPower,Size")] Product product)
+        public async Task<IActionResult> Edit(int id, ProductsAdminViewModel product, Microsoft.AspNetCore.Http.IFormFile fThumb)
         {
             if (id != product.ProductId)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            try
             {
-                try
+                if (ModelState.IsValid)
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductExists(product.ProductId))
+                    // Lấy sản phẩm từ cơ sở dữ liệu dựa trên ProductId
+                    var existingProduct = await _context.Products.FindAsync(product.ProductId);
+
+                    if (existingProduct == null)
                     {
                         return NotFound();
                     }
-                    else
+                    product.Alias = Utilities.SEOUrl(product.ProductName);
+
+                    if (product.Discount == null)
                     {
-                        throw;
+                        product.Discount = product.Price;
                     }
+                    if (product.Price == null && product.Discount != null)
+                    {
+                        product.Price = product.Discount;
+                    }
+
+                    // Cập nhật thông tin sản phẩm từ ProductsAdminViewModel
+                    existingProduct.ProductName = product.ProductName;
+                    existingProduct.Alias = Utilities.SEOUrl(product.ProductName);
+                    existingProduct.DateCreated = product.DateCreated;
+                    existingProduct.DateModified = DateTime.Now;
+                    existingProduct.ShortDesc = product.ShortDesc;
+                    existingProduct.Description = product.Description;
+                    existingProduct.Price = product.Price ?? product.Discount;
+                    existingProduct.Discount = product.Discount ?? product.Price;
+                    existingProduct.BestSellers = product.BestSellers;
+                    existingProduct.HomeFlag = product.HomeFlag;
+                    existingProduct.Active = product.Active;
+                    existingProduct.Tags = product.Tags;
+                    existingProduct.Title = product.ProductName;
+                    existingProduct.MetaDesc = product.MetaDesc;
+                    existingProduct.MetaKey = product.MetaKey;
+                    existingProduct.UnitslnStock = product.UnitslnStock;
+                    existingProduct.ProducerId = product.ProducerId;
+                    existingProduct.StatusId = product.StatusId;
+                    existingProduct.Cpu = product.Cpu;
+                    existingProduct.Ram = product.Ram;
+                    existingProduct.HardDrive = product.HardDrive;
+                    existingProduct.GraphicCard = product.GraphicCard;
+                    existingProduct.Screen = product.Screen;
+                    existingProduct.Location = product.Location;
+                    existingProduct.TypeCameraId = product.TypeCameraId;
+                    existingProduct.Resoluton = product.Resoluton;
+                    existingProduct.CameraAngle = product.CameraAngle;
+                    existingProduct.Storege = product.Storege;
+                    existingProduct.FarInfraredVision = product.FarInfraredVision;
+                    existingProduct.DeviceSupport = product.DeviceSupport;
+                    existingProduct.ControlPhone = product.ControlPhone;
+                    existingProduct.Utilities = product.Utilities;
+                    existingProduct.Conversation = product.Conversation;
+                    existingProduct.Adapter = product.Adapter;
+                    existingProduct.InputPower = product.InputPower;
+                    existingProduct.Size = product.Size;
+                    existingProduct.Configuration = product.Configuration;
+                    _context.Update(existingProduct);
+                    await _context.SaveChangesAsync();
+
+                    // Sử dụng DbContext.Entry để lấy đối tượng sau khi đã thêm vào cơ sở dữ liệu
+                    var addedProduct = _context.Entry(existingProduct).Entity;
+
+                    // Bây giờ bạn có thể truy cập ProductId
+                    int productId = addedProduct.ProductId;
+
+
+                    if (product.ProductCategories != null)
+                    {
+                        // Tạo danh sách các đối tượng ProductCategori từ dữ liệu trong model
+                        foreach (var categoryId in product.ProductCategories)
+                        {
+                            var productCategory = new ProductCategori
+                            {
+                                ProductsId = productId, // Sử dụng ProductId từ sản phẩm đã lưu
+                                CatId = categoryId
+                            };
+                            _context.Add(productCategory);
+                        }
+                        await _context.SaveChangesAsync();
+                    }
+                    return RedirectToAction(nameof(Index));
                 }
-                return RedirectToAction(nameof(Index));
+                ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatName", product.CatId);
+                ViewData["ProducerId"] = new SelectList(_context.Producers, "ProducerId", "ProducerName", product.ProducerId);
+                ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusName", product.StatusId);
+                return View(product);
             }
-            ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatId", product.CatId);
-            ViewData["ProducerId"] = new SelectList(_context.Producers, "ProducerId", "ProducerId", product.ProducerId);
-            ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusId", product.StatusId);
-            return View(product);
+            catch (Exception ex)
+            {
+                return View("Error");
+            }
         }
 
         // GET: Admin/AdminProducts/Delete/5

@@ -43,21 +43,21 @@ namespace WebApp_camera_laptop.Controllers
             }
         }
 
-        [Route("/{CatId}", Name = "ListProduct")]
-        public IActionResult List(int CatId, int page = 1)
+        [Route("/{Alias}", Name = "ListProduct")]
+        public IActionResult List(string Alias, int page = 1)
         {
             try
             {
                 var pageSize = 12;
-                var danhmuc = _context.Categories.AsNoTracking().SingleOrDefault(x => x.CatId == CatId);
+                var danhmuc = _context.Categories.AsNoTracking().SingleOrDefault(x => x.Alias == Alias);
                 var IsProducts = _context.Products
                     .AsNoTracking()
                     .Where(p => p.ProductCategoris.Any(pc => pc.CatId == danhmuc.CatId))
                     .OrderByDescending(x => x.DateCreated);
-                PagedList<Product> models = new PagedList<Product>(IsProducts, page, pageSize);
+                PagedList<Product> models = new PagedList<Product>(IsProducts.AsQueryable(), page, pageSize);
                 var IsBestsell = _context.Products
                     .AsNoTracking()
-                    //.Where(x => x.BestSellers && x.BestSellers == true)
+                    .Where(x => x.BestSellers == true)
                     .OrderByDescending(x => x.DateCreated)
                     .Take(4)
                     .ToList();
@@ -101,6 +101,11 @@ namespace WebApp_camera_laptop.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
+        }
+        public IActionResult Error()
+        {
+            // Xử lý lỗi ở đây (nếu cần)
+            return View(); // Chuyển hướng đến view "Error"
         }
     }
 }

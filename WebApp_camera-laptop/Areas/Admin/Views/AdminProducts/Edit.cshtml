@@ -1,222 +1,191 @@
-﻿@model WebApp_camera_laptop.Models.Product
+﻿@model WebApp_camera_laptop.Areas.Admin.ModelViews.ProductsAdminViewModel
 
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+@section Styles{
+    <link href="~/assets/admin/sumernote/summernote-bs4.css" rel="stylesheet" />
+    <link href="~/assets/admin/sumernote/summernote.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+            @*    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />*@
 
-<h2>Edit</h2>
 
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+}
+
+<section class="breadcrumb__area box-plr-75">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="breadcrumb__wrapper">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                            <li class="breadcrumb-item active"><a asp-action="Index">Quản lý sản phẩm</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a></a>Chỉnh sửa sản phẩm</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="col-xs-12">
+    <div class="box-content">
+        <h4 class="box-title">Form chỉnh sửa thông tin sản phẩm</h4>
+        <!-- /.box-title -->
+        <!-- /.dropdown js__dropdown -->
+        <form asp-controller="AdminProducts" asp-action="Edit" method="post" enctype="multipart/form-data">
             <input type="hidden" asp-for="ProductId" />
-            <div class="form-group">
-                <label asp-for="ProductName" class="control-label"></label>
-                <input asp-for="ProductName" class="form-control" />
-                <span asp-validation-for="ProductName" class="text-danger"></span>
+            <div id="tabsleft" class="tabbable tabs-left">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item active"><a class="nav-link" href="#tabsleft-tab1" data-toggle="tab">Thông tin sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tabsleft-tab2" data-toggle="tab">Cấu hình sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tabsleft-tab3" data-toggle="tab">Mô tả sản phẩm</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tabsleft-tab1">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="emailfield">Tên sản phẩm</label>
+                                <div class="controls">
+                                    <input type="text" asp-for="ProductName" class="form-control">
+                                    <span class="text-danger" asp-validation-for="ProductName"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="emailfield">Danh mục</label>
+                                <select class="form-control select2_1" asp-for="ProductCategories" asp-items="ViewBag.CatId" multiple="multiple">
+                                </select>
+                                <span class="text-danger" asp-validation-for="ProductCategories"></span>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="namefield">Giá bán</label>
+                                <div class="controls">
+                                    <input type="number" asp-for="Price" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="namefield">Giá giảm</label>
+                                <div class="controls">
+                                    <input type="number" asp-for="Discount" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="emailfield">Số lượng sản phẩm</label>
+                                <div class="controls">
+                                    <input type="number" asp-for="UnitslnStock" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="emailfield">Trạng thái sản phẩm</label>
+                                <select class="form-control" asp-for="StatusId" asp-items="ViewBag.StatusId">
+                                    <option value="" disabled selected>Chọn trạng thái</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="emailfield">Mô tả ngắn sản phẩm</label>
+                                <div class="controls">
+                                    <textarea type="text" asp-for="ShortDesc" class="form-control"></textarea>
+                                    <span class="text-danger" asp-validation-for="ShortDesc"></span>
+
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="emailfield">Nhà sản xuất</label>
+                                <select class="form-control" asp-for="ProducerId" asp-items="ViewBag.ProducerId">
+                                    <option value="" disabled selected>Chọn nhà sản xuất</option>
+                                </select>
+                            </div>
+                        </div>
+                      
+                        <div class="form-group">
+                            <div class="switch primary">
+                                <input type="checkbox" asp-for="Active" checked>
+                                <label for="Active">Hoạt động</label>
+                            </div>
+                            <div class="switch primary">
+                                <input type="checkbox" asp-for="HomeFlag">
+                                <label for="HomeFlag">Hiển thị ở trang chủ</label>
+                            </div>
+                            <div class="switch primary">
+                                <input type="checkbox" asp-for="BestSellers">
+                                <label for="BestSellers">Sản phẩm bán chạy</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tabsleft-tab2">
+                        <div class="card">
+                            <div class="card-body">
+                                <textarea class="summernote" asp-for="Configuration"></textarea>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="tab-pane" id="tabsleft-tab3">
+                        <div class="card">
+                            <div class="card-body">
+                                <textarea class="summernote" asp-for="Description"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="ShortDesc" class="control-label"></label>
-                <input asp-for="ShortDesc" class="form-control" />
-                <span asp-validation-for="ShortDesc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CatId" class="control-label"></label>
-                <select asp-for="CatId" class="form-control" asp-items="ViewBag.CatId"></select>
-                <span asp-validation-for="CatId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Discount" class="control-label"></label>
-                <input asp-for="Discount" class="form-control" />
-                <span asp-validation-for="Discount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Thumb" class="control-label"></label>
-                <input asp-for="Thumb" class="form-control" />
-                <span asp-validation-for="Thumb" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Video" class="control-label"></label>
-                <input asp-for="Video" class="form-control" />
-                <span asp-validation-for="Video" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateCreated" class="control-label"></label>
-                <input asp-for="DateCreated" class="form-control" />
-                <span asp-validation-for="DateCreated" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateModified" class="control-label"></label>
-                <input asp-for="DateModified" class="form-control" />
-                <span asp-validation-for="DateModified" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BestSellers" class="control-label"></label>
-                <input asp-for="BestSellers" class="form-control" />
-                <span asp-validation-for="BestSellers" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HomeFlag" class="control-label"></label>
-                <input asp-for="HomeFlag" class="form-control" />
-                <span asp-validation-for="HomeFlag" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Active" class="control-label"></label>
-                <input asp-for="Active" class="form-control" />
-                <span asp-validation-for="Active" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tags" class="control-label"></label>
-                <input asp-for="Tags" class="form-control" />
-                <span asp-validation-for="Tags" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Alias" class="control-label"></label>
-                <input asp-for="Alias" class="form-control" />
-                <span asp-validation-for="Alias" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MetaDesc" class="control-label"></label>
-                <input asp-for="MetaDesc" class="form-control" />
-                <span asp-validation-for="MetaDesc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MetaKey" class="control-label"></label>
-                <input asp-for="MetaKey" class="form-control" />
-                <span asp-validation-for="MetaKey" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UnitslnStock" class="control-label"></label>
-                <input asp-for="UnitslnStock" class="form-control" />
-                <span asp-validation-for="UnitslnStock" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProducerId" class="control-label"></label>
-                <select asp-for="ProducerId" class="form-control" asp-items="ViewBag.ProducerId"></select>
-                <span asp-validation-for="ProducerId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="StatusId" class="control-label"></label>
-                <select asp-for="StatusId" class="form-control" asp-items="ViewBag.StatusId"></select>
-                <span asp-validation-for="StatusId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cpu" class="control-label"></label>
-                <input asp-for="Cpu" class="form-control" />
-                <span asp-validation-for="Cpu" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ram" class="control-label"></label>
-                <input asp-for="Ram" class="form-control" />
-                <span asp-validation-for="Ram" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HardDrive" class="control-label"></label>
-                <input asp-for="HardDrive" class="form-control" />
-                <span asp-validation-for="HardDrive" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GraphicCard" class="control-label"></label>
-                <input asp-for="GraphicCard" class="form-control" />
-                <span asp-validation-for="GraphicCard" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Screen" class="control-label"></label>
-                <input asp-for="Screen" class="form-control" />
-                <span asp-validation-for="Screen" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TypeCameraId" class="control-label"></label>
-                <input asp-for="TypeCameraId" class="form-control" />
-                <span asp-validation-for="TypeCameraId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Resoluton" class="control-label"></label>
-                <input asp-for="Resoluton" class="form-control" />
-                <span asp-validation-for="Resoluton" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CameraAngle" class="control-label"></label>
-                <input asp-for="CameraAngle" class="form-control" />
-                <span asp-validation-for="CameraAngle" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Storege" class="control-label"></label>
-                <input asp-for="Storege" class="form-control" />
-                <span asp-validation-for="Storege" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FarInfraredVision" class="control-label"></label>
-                <input asp-for="FarInfraredVision" class="form-control" />
-                <span asp-validation-for="FarInfraredVision" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeviceSupport" class="control-label"></label>
-                <input asp-for="DeviceSupport" class="form-control" />
-                <span asp-validation-for="DeviceSupport" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ControlPhone" class="control-label"></label>
-                <input asp-for="ControlPhone" class="form-control" />
-                <span asp-validation-for="ControlPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Utilities" class="control-label"></label>
-                <input asp-for="Utilities" class="form-control" />
-                <span asp-validation-for="Utilities" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Conversation" class="control-label"></label>
-                <input asp-for="Conversation" class="form-control" />
-                <span asp-validation-for="Conversation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Adapter" class="control-label"></label>
-                <input asp-for="Adapter" class="form-control" />
-                <span asp-validation-for="Adapter" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="InputPower" class="control-label"></label>
-                <input asp-for="InputPower" class="form-control" />
-                <span asp-validation-for="InputPower" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Size" class="control-label"></label>
-                <input asp-for="Size" class="form-control" />
-                <span asp-validation-for="Size" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <button type="submit" value="Create" class="btn btn-primary">Tạo mới</button>
+                <button asp-action="Index" class="btn btn-default">Quay lại</button>
             </div>
         </form>
     </div>
+
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+@section Scripts{
+    @*<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>*@
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="~/assets/admin/sumernote/summernote-bs4.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            $('.summernote').summernote({
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5'],
+                height: 200,
+                minHeight: null,
+                maxHeight: null,
+                focus: true
+            });
+        });
+
+    </script>
+    @* <script>
+        Dropzone.autoDiscover = false;
+        $(document).ready(function () {
+            var myDropzone = new Dropzone("#myDropzone", {
+                url: "/Upload",
+                paramName: "fThumb",
+                addRemoveLinks: true,
+                dictRemoveFile: "Remove",
+                removedfile: function (file) {
+                    var _ref;
+                    return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : null;
+                },
+                success: function (file, response) {
+                    console.log(response);
+                }
+            });
+        });
+    </script>*@
+}
 

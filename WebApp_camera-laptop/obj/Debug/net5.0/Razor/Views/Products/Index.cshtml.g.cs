@@ -34,7 +34,7 @@ using PagedList.Core.Mvc;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0ee599001a28765182d379d8ad3dfcc02306512f", @"/Views/Products/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"59cef2f77e26656413299c86504eadb8985bad94", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"629424598a4d68b2ea4da5857b10c08283034203", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Products_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PagedList.Core.IPagedList<WebApp_camera_laptop.Models.Product>>
     #nullable disable

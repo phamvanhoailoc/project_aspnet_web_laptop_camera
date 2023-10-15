@@ -1,8 +1,13 @@
 ﻿@model WebApp_camera_laptop.ModelViews.HomeViewVM
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Trang chủ - Công nghệ Phương Vũ";
+    List<Product> laptops = ViewBag.laptops;
+    List<Product> cameras = ViewBag.camera;
+    List<Product> maybos = ViewBag.maybo;
+    List<Product> mayvanphongs = ViewBag.mayvanphong;
 }
+
 @section Styles{
     <style>
         .item-price {
@@ -50,32 +55,9 @@
                                     <ul>
                                         @foreach (var category in Model.Categories)
                                         {
-                                            @if (category.ParentId == 1 || category.ParentId == 2  || category.ParentId == 26 || category.ParentId == 28)
-                                            { 
-                                                 <li>
-                                                <a href="#">@category.CatName<i class="far fa-angle-down"></i></a>
-                                                @if (category.Subcategories != null && category.Subcategories.Any())
-                                                {
-                                                    <ul class="mega-menu">
-                                                        @foreach (var subcategory in category.Subcategories)
-                                                        {
-                                                            <li>
-                                                                    <a href="/@subcategory.CatId">@subcategory.CatName</a>
-                                                                 <ul class="mega-item">
-                                                                     @if (subcategory.Subcategories != null)
-                                                                    {
-                                                                        @foreach (var subsubcategory in subcategory.Subcategories)
-                                                                        {
-                                                                                <li> <a href="/@subsubcategory.CatId">@subsubcategory.CatName</a></li>
-                                                                        }
-                                                                    }
-                                                                 </ul>
-                                                            </li>
-                                                        }
-                                                    </ul>
-                                                }  
+                                            <li>
+                                                <a href="@category.Alias">@category.CatName</a>
                                             </li>
-                                            }
                                            
                                         }                                  
                                     </ul>
@@ -91,26 +73,26 @@
                         <div class="col-xl-9 custom-col-9 col-lg-8">
                             <div class="slider__inner slider-active">
                                 <div class="single-slider w-img">
-                                    <img src="~/assets/template/img/slider/02/slider-01.jpg" alt="slider" />
+                                    <img src="~/assets/template/img/slider/02/slider-01.png" alt="slider" />
                                 </div>
                                 <div class="single-slider w-img">
-                                    <img src="~/assets/template/img/slider/02/slider-02.jpg" alt="slider" />
+                                    <img src="~/assets/template/img/slider/02/slider-01.png" alt="slider" />
                                 </div>
                                 <div class="single-slider w-img">
-                                    <img src="~/assets/template/img/slider/02/slider-03.jpg" alt="slider" />
+                                    <img src="~/assets/template/img/slider/02/slider-01.png" alt="slider" />
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-3 custom-col-3 col-lg-4 d-none d-md-block">
                             <div class="banner__area">
                                 <div class="banner__item mb-20 w-img">
-                                    <a href="product-details.html"><img src="~/assets/template/img/banner/top/banner-top-3.jpg" alt="" /></a>
+                                    <a href="product-details.html"><img src="~/assets/template/img/banner/top/banner-top-3.png" alt="" /></a>
                                 </div>
                                 <div class="banner__item mb-20 w-img">
-                                    <a href="product-details.html"><img src="~/assets/template/img/banner/top/banner-top-4.jpg" alt="" /></a>
+                                    <a href="product-details.html"><img src="~/assets/template/img/banner/top/banner-top-3.png" alt="" /></a>
                                 </div>
                                 <div class="banner__item w-img">
-                                    <a href="product-details.html"><img src="~/assets/template/img/banner/top/banner-top-5.jpg" alt="" /></a>
+                                    <a href="product-details.html"><img src="~/assets/template/img/banner/top/banner-top-3.png" alt="" /></a>
                                 </div>
                             </div>
                         </div>
@@ -222,84 +204,85 @@
         </div>*@
     </section>
     <!-- banner area end -->
-    <!-- best selling area start -->
-    <section class="best__sell pt-15 pb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section__head d-md-flex justify-content-between mb-40">
-                        <div class="section__title">
-                            <h3>Laptop<span></span></h3>
-                        </div>
-                        <div class="product__nav-tab mr-75">
-                            <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button" role="tab" aria-controls="new" aria-selected="true">New Arrival</button>
-                                </li>          
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="tab-content" id="best-sell-tabContent">
-                        <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
-                            <div class="product__slider owl-carousel">
-                                 @if (Model.Products != null && Model.Products.Count() > 0)
-                                {
-                                     string firstImage = null;
-                                     string SeconImage = null;
-                                    foreach (var item in Model.Products)
-                                    {
-                                        string url = $"/{item.Alias}-{item.ProductId}.html";
-                                        if (item.Thumb != null)
-                                        {
-                                            string[] imageList = item.Thumb.Split(',');
-
-                                            if (imageList.Length >= 1)
-                                            {
-                                                firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
-                                            }
-
-                                            if (imageList.Length >= 2)
-                                            {
-                                                SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
-                                            }
-
-                                        }
-                                        
-                                        <div class="product__item product__item-2 white-bg">
-                                            <div class="product__thumb p-relative">
-                                                <a href="@url" class="w-img">
-                                                    <img src="~/images/products/@firstImage" alt="@item.Title" />
-                                                    <img class="second-img" src="~/images/products/@SeconImage" alt="@item.Title" />
-                                                </a>
-                                              
-                                            </div>
-                                            <div class="product__content text-center">
-                                                <h6 class="product-name">
-                                                    <a class="product-item-link" href="@url">@item.ProductName</a>
-                                                </h6>
-
-                                                <span class="price" style="text-decoration: line-through">@item.Price.Value.ToString("#,###") VND</span>
-                                                <span class="price item-price" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
-                                            </div>
-                                           @* <div class="product__add-btn">
-                                                <button type="button">Thêm vào giỏ hàng</button>
-                                            </div>*@
-                                        </div>
-                                    }
-                                }
+    <!-- laptop area start -->
+    @if (laptops != null && laptops.Count() > 0)
+    {
+        <section class="best__sell pt-15 pb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="section__head d-md-flex justify-content-between mb-40">
+                            <div class="section__title">
+                                <h3>Laptop<span></span></h3>
                             </div>
+                           
                         </div>
-                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="tab-content" id="best-sell-tabContent">
+                            <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
+                                <div class="product__slider owl-carousel">
+                                    @if (laptops != null && laptops.Count() > 0)
+                                    {
+                                        string firstImage = null;
+                                        string SeconImage = null;
+                                        foreach (var item in laptops)
+                                        {
+                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            if (item.Thumb != null)
+                                            {
+                                                string[] imageList = item.Thumb.Split(',');
+
+                                                if (imageList.Length >= 1)
+                                                {
+                                                    firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                                }
+
+                                                if (imageList.Length >= 2)
+                                                {
+                                                    SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                                }
+
+                                            }
+
+                                            <div class="product__item product__item-2 white-bg" style="height: 363px;">
+                                                <div class="product__thumb p-relative">
+                                                    <a href="@url" class="w-img">
+                                                        <img style="width:172px; height:172px;" src="~/images/products/@firstImage" alt="@item.Title" />
+                                                        <img style="width:172px; height:172px;" class="second-img" src="~/images/products/@SeconImage" alt="@item.Title" />
+                                                    </a>
+
+                                                </div>
+                                                <div class="product__content text-center">
+                                                    <h6 class="product-name">
+                                                        <a class="product-item-link" href="@url">@item.ProductName</a>
+                                                    </h6>
+                                                    @if(@item.Price != null || @item.Discount != null){
+                                                    <span class="price" style="text-decoration: line-through">@item.Price.Value.ToString("#,###") VND</span>
+                                                    <span class="price item-price" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
+                                                    }else{
+                                                    <span class="price item-price" style="color:red">Giá liên hệ</span>
+                                                    }
+                                                    
+                                                </div>
+                                                @* <div class="product__add-btn">
+                                    <button type="button">Thêm vào giỏ hàng</button>
+                                    </div>*@
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- best selling area end -->
+        </section>
+    }
+    <!-- laptop area end -->
     <!-- banner area start -->
     <section class="brand__area">
        @* <div class="container">
@@ -337,83 +320,91 @@
         </div>*@
     </section>
     <!-- banner area end -->
-    <!-- deal off the day area start -->
-    <section class="deal__area pb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section__head d-md-flex justify-content-between mb-40">
-                        <div class="section__title">
-                            <h3>Camera<span> </span></h3>
-                        </div>
-                        <div class="product__nav-tab mr-75">
-                            <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button" role="tab" aria-controls="new" aria-selected="true">New Arrival</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="tab-content" id="best-sell-tabContent">
-                        <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
-                            <div class="product__slider owl-carousel">
-                                @if (Model.Products != null && Model.Products.Count() > 0)
-                                {
-                                    string firstImage = null;
-                                    string SeconImage = null;
-                                    foreach (var item in Model.Products)
-                                    {
-                                        string url = $"/{item.Alias}-{item.ProductId}.html";
-                                        if (item.Thumb != null)
-                                        {
-                                            string[] imageList = item.Thumb.Split(',');
-
-                                            if (imageList.Length >= 1)
-                                            {
-                                                firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
-                                            }
-
-                                            if (imageList.Length >= 2)
-                                            {
-                                                SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
-                                            }
-                                        }
-                                        
-                                        <div class="product__item product__item-2 white-bg">
-                                            <div class="product__thumb p-relative">
-                                                <a href="@url" class="w-img">
-                                                    <img src="~/images/products/@firstImage" alt="@item.Title" />
-                                                    <img class="second-img" src="~/images/products/@SeconImage" alt="@item.Title" />
-                                                </a>
-
-                                            </div>
-                                            <div class="product__content text-center">
-                                                <h6 class="product-name">
-                                                    <a class="product-item-link" href="@url">@item.ProductName</a>
-                                                </h6>
-
-                                                <span class="price" style="text-decoration: line-through">@item.Price.Value.ToString("#,###") VND</span>
-                                                <span class="price item-price" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
-                                            </div>
-                                           @* <div class="product__add-btn">
-                                                <button type="button">Thêm vào giỏ hàng</button>
-                                            </div>*@
-                                        </div>
-                                    }
-                                }
+    <!-- camera area start -->
+    @if (cameras != null && cameras.Count() > 0)
+    {
+        <section class="deal__area pb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="section__head d-md-flex justify-content-between mb-40">
+                            <div class="section__title">
+                                <h3>Camera<span> </span></h3>
+                            </div>
+                            <div class="product__nav-tab mr-75">
+                                <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button" role="tab" aria-controls="new" aria-selected="true">New Arrival</button>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="tab-content" id="best-sell-tabContent">
+                            <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
+                                <div class="product__slider owl-carousel">
+                                    @if (cameras != null && cameras.Count() > 0)
+                                    {
+                                        string firstImage = null;
+                                        string SeconImage = null;
+                                        foreach (var item in cameras)
+                                        {
+                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            if (item.Thumb != null)
+                                            {
+                                                string[] imageList = item.Thumb.Split(',');
 
+                                                if (imageList.Length >= 1)
+                                                {
+                                                    firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                                }
+
+                                                if (imageList.Length >= 2)
+                                                {
+                                                    SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                                }
+                                            }
+
+                                            <div class="product__item product__item-2 white-bg" style="height: 363px;">
+                                                <div class="product__thumb p-relative">
+                                                    <a href="@url" class="w-img">
+                                                        <img style="width:172px; height:172px;" src="~/images/products/@firstImage" alt="@item.Title" />
+                                                        <img style="width:172px; height:172px;" class="second-img" src="~/images/products/@SeconImage" alt="@item.Title" />
+                                                    </a>
+
+                                                </div>
+                                                <div class="product__content text-center">
+                                                    <h6 class="product-name">
+                                                        <a class="product-item-link" href="@url">@item.ProductName</a>
+                                                    </h6>
+
+                                                    @if(@item.Price != null || @item.Discount != null){
+                                                    <span class="price" style="text-decoration: line-through">@item.Price.Value.ToString("#,###") VND</span>
+                                                    <span class="price item-price" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
+                                                    }else{
+                                                    <span class="price item-price" style="color:red">Giá liên hệ</span>
+                                                    }
+                                                </div>
+                                                @* <div class="product__add-btn">
+                                    <button type="button">Thêm vào giỏ hàng</button>
+                                    </div>*@
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- deal off the day area end -->
+        </section>
+
+    }
+    <!-- camera area end -->
     <!-- banner area start -->
     <section class="brand__area">
        @* <div class="container">
@@ -451,271 +442,179 @@
         </div>*@
     </section>
     <!-- banner area end -->
-    <!-- onsale product area start -->
-    <section class="onsell__area pt-15 pb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section__head d-md-flex justify-content-between mb-40">
-                        <div class="section__title">
-                            <h3>Máy bộ<span></span></h3>
-                        </div>
-                        <div class="product__nav-tab mr-75">
-                            <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button" role="tab" aria-controls="new" aria-selected="true">New Arrival</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="tab-content" id="best-sell-tabContent">
-                        <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
-                            <div class="product__slider owl-carousel">
-                                @if (Model.Products != null && Model.Products.Count() > 0)
-                                {
-                                    string firstImage = null;
-                                    string SeconImage = null;
-                                    foreach (var item in Model.Products)
-                                    {
-                                        string url = $"/{item.Alias}-{item.ProductId}.html";
-                                        if (item.Thumb != null)
-                                        {
-                                            string[] imageList = item.Thumb.Split(',');
-
-                                            if (imageList.Length >= 1)
-                                            {
-                                                firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
-                                            }
-
-                                            if (imageList.Length >= 2)
-                                            {
-                                                SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
-                                            }
-                                        }
-                                        
-                                        <div class="product__item product__item-2 white-bg">
-                                            <div class="product__thumb p-relative">
-                                                <a href="@url" class="w-img">
-                                                    <img src="~/images/products/@firstImage" alt="@item.Title" />
-                                                    <img class="second-img" src="~/images/products/@SeconImage" alt="@item.Title" />
-                                                </a>
-
-                                            </div>
-                                            <div class="product__content text-center">
-                                                <h6 class="product-name">
-                                                    <a class="product-item-link" href="@url">@item.ProductName</a>
-                                                </h6>
-
-                                                <span class="price" style="text-decoration: line-through">@item.Price.Value.ToString("#,###") VND</span>
-                                                <span class="price item-price" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
-                                            </div>
-                                          @*  <div class="product__add-btn">
-                                                <button type="button">Thêm vào giỏ hàng</button>
-                                            </div>*@
-                                        </div>
-                                    }
-                                }
+    <!-- may bo area start -->
+    @if (maybos != null && maybos.Count() > 0)
+    {
+        <section class="onsell__area pt-15 pb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="section__head d-md-flex justify-content-between mb-40">
+                            <div class="section__title">
+                                <h3>Máy bộ<span></span></h3>
+                            </div>
+                            <div class="product__nav-tab mr-75">
+                                <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button" role="tab" aria-controls="new" aria-selected="true">New Arrival</button>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- onsale product area end -->
-    <!-- onsale product area start -->
-    <section class="onsell__area pt-15 pb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section__head d-md-flex justify-content-between mb-40">
-                        <div class="section__title">
-                            <h3>Máy văn phòng<span></span></h3>
-                        </div>
-                        <div class="product__nav-tab mr-75">
-                            <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button" role="tab" aria-controls="new" aria-selected="true">New Arrival</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="tab-content" id="best-sell-tabContent">
-                        <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
-                            <div class="product__slider owl-carousel">
-                                @if (Model.Products != null && Model.Products.Count() > 0)
-                                {
-                                    string firstImage = null;
-                                    string SeconImage = null;
-                                    foreach (var item in Model.Products)
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="tab-content" id="best-sell-tabContent">
+                            <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
+                                <div class="product__slider owl-carousel">
+                                    @if (maybos != null && maybos.Count() > 0)
                                     {
-                                        string url = $"/{item.Alias}-{item.ProductId}.html";
-                                        if (item.Thumb != null)
+                                        string firstImage = null;
+                                        string SeconImage = null;
+                                        foreach (var item in maybos)
                                         {
-                                            string[] imageList = item.Thumb.Split(',');
-
-                                            if (imageList.Length >= 1)
+                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            if (item.Thumb != null)
                                             {
-                                                firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                                string[] imageList = item.Thumb.Split(',');
+
+                                                if (imageList.Length >= 1)
+                                                {
+                                                    firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                                }
+
+                                                if (imageList.Length >= 2)
+                                                {
+                                                    SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                                }
                                             }
 
-                                            if (imageList.Length >= 2)
-                                            {
-                                                SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
-                                            }
-                                        }
+                                            <div class="product__item product__item-2 white-bg" style="height: 363px;">
+                                                <div class="product__thumb p-relative">
+                                                    <a href="@url" class="w-img">
+                                                        <img style="width:172px; height:172px;" src="~/images/products/@firstImage" alt="@item.Title" />
+                                                        <img style="width:172px; height:172px;" class="second-img" src="~/images/products/@SeconImage" alt="@item.Title" />
+                                                    </a>
 
-                                        <div class="product__item product__item-2 white-bg">
-                                            <div class="product__thumb p-relative">
-                                                <a href="@url" class="w-img">
-                                                    <img src="~/images/products/@firstImage" alt="@item.Title" />
-                                                    <img class="second-img" src="~/images/products/@SeconImage" alt="@item.Title" />
-                                                </a>
+                                                </div>
+                                                <div class="product__content text-center">
+                                                    <h6 class="product-name">
+                                                        <a class="product-item-link" href="@url">@item.ProductName</a>
+                                                    </h6>
 
-                                            </div>
-                                            <div class="product__content text-center">
-                                                <h6 class="product-name">
-                                                    <a class="product-item-link" href="@url">@item.ProductName</a>
-                                                </h6>
-
-                                                <span class="price" style="text-decoration: line-through">@item.Price.Value.ToString("#,###") VND</span>
-                                                <span class="price item-price" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
-                                            </div>
-                                            @*  <div class="product__add-btn">
+                                                    @if(@item.Price != null || @item.Discount != null){
+                                                    <span class="price" style="text-decoration: line-through">@item.Price.Value.ToString("#,###") VND</span>
+                                                    <span class="price item-price" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
+                                                    }else{
+                                                    <span class="price item-price" style="color:red">Giá liên hệ</span>
+                                                    }
+                                                </div>
+                                                @*  <div class="product__add-btn">
                                     <button type="button">Thêm vào giỏ hàng</button>
                                     </div>*@
-                                        </div>
+                                            </div>
+                                        }
                                     }
-                                }
+                                </div>
                             </div>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- onsale product area end -->
-    <!-- blog area start -->
-    <section class="blog__area pt-55 pb-40 grey-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section__head d-flex justify-content-between mb-40">
-                        <div class="section__title">
-                            <h3>From The<span>Blog</span></h3>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="blog__slider owl-carousel">
-                        <div class="blog__item mb-30">
-                            <div class="blog__thumb fix">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/template/img/blog/blog-1.jpg" alt="" />
-                                </a>
+        </section>
+
+    }
+    <!-- may bo area end -->
+    <!-- may van phong area start -->
+    @if (mayvanphongs != null && mayvanphongs.Count() > 0)
+    {
+        <section class="onsell__area pt-15 pb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="section__head d-md-flex justify-content-between mb-40">
+                            <div class="section__title">
+                                <h3>Máy văn phòng<span></span></h3>
                             </div>
-                            <div class="blog__content white-bg">
-                                <h3><a href="blog-details.html">Curabitur Lobortis News</a></h3>
-                                <div class="blog__meta">
-                                    <span>Post Date:</span>
-                                    <span class="date"> 01-Jul-2020</span>
-                                </div>
-                                <p>Suspendisse turpis ipsum, tempus in nulla eu, posuere pharetra nibh. In dignissim vitae lorem non mollis.</p>
-                            </div>
-                        </div>
-                        <div class="blog__item mb-30">
-                            <div class="blog__thumb fix">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/template/img/blog/blog-2.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="blog__content white-bg">
-                                <h3><a href="blog-details.html">The Brushed Steel</a></h3>
-                                <div class="blog__meta">
-                                    <span>Post Date:</span>
-                                    <span class="date"> 05-Aug-2020</span>
-                                </div>
-                                <p>Suspendisse turpis ipsum, tempus in nulla eu, posuere pharetra nibh. In dignissim vitae lorem non mollis.</p>
-                            </div>
-                        </div>
-                        <div class="blog__item mb-30">
-                            <div class="blog__thumb fix">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/template/img/blog/blog-3.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="blog__content white-bg">
-                                <h3><a href="blog-details.html">Koma and Torus</a></h3>
-                                <div class="blog__meta">
-                                    <span>Post Date:</span>
-                                    <span class="date"> 15-Aug-2020</span>
-                                </div>
-                                <p>Suspendisse turpis ipsum, tempus in nulla eu, posuere pharetra nibh. In dignissim vitae lorem non mollis.</p>
-                            </div>
-                        </div>
-                        <div class="blog__item mb-30">
-                            <div class="blog__thumb fix">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/template/img/blog/blog-4.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="blog__content white-bg">
-                                <h3><a href="blog-details.html">Grip and Allows</a></h3>
-                                <div class="blog__meta">
-                                    <span>Post Date:</span>
-                                    <span class="date"> 20-Aug-2020</span>
-                                </div>
-                                <p>Suspendisse turpis ipsum, tempus in nulla eu, posuere pharetra nibh. In dignissim vitae lorem non mollis.</p>
-                            </div>
-                        </div>
-                        <div class="blog__item mb-30">
-                            <div class="blog__thumb fix">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/template/img/blog/blog-5.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="blog__content white-bg">
-                                <h3><a href="blog-details.html">Pitterarum Formas</a></h3>
-                                <div class="blog__meta">
-                                    <span>Post Date:</span>
-                                    <span class="date"> 25-Aug-2020</span>
-                                </div>
-                                <p>Suspendisse turpis ipsum, tempus in nulla eu, posuere pharetra nibh. In dignissim vitae lorem non mollis.</p>
-                            </div>
-                        </div>
-                        <div class="blog__item mb-30">
-                            <div class="blog__thumb fix">
-                                <a href="blog-details.html">
-                                    <img src="~/assets/template/img/blog/blog-6.jpg" alt="" />
-                                </a>
-                            </div>
-                            <div class="blog__content white-bg">
-                                <h3><a href="blog-details.html">Shelving Burgundy</a></h3>
-                                <div class="blog__meta">
-                                    <span>Post Date:</span>
-                                    <span class="date"> 02-Sep-2020</span>
-                                </div>
-                                <p>Suspendisse turpis ipsum, tempus in nulla eu, posuere pharetra nibh. In dignissim vitae lorem non mollis.</p>
+                            <div class="product__nav-tab mr-75">
+                                <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button" role="tab" aria-controls="new" aria-selected="true">New Arrival</button>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="tab-content" id="best-sell-tabContent">
+                            <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
+                                <div class="product__slider owl-carousel">
+                                    @if (mayvanphongs != null && mayvanphongs.Count() > 0)
+                                    {
+                                        string firstImage = null;
+                                        string SeconImage = null;
+                                        foreach (var item in mayvanphongs)
+                                        {
+                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            if (item.Thumb != null)
+                                            {
+                                                string[] imageList = item.Thumb.Split(',');
+
+                                                if (imageList.Length >= 1)
+                                                {
+                                                    firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                                }
+
+                                                if (imageList.Length >= 2)
+                                                {
+                                                    SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                                }
+                                            }
+
+                                            <div class="product__item product__item-2 white-bg" style="height: 363px;">
+                                                <div class="product__thumb p-relative">
+                                                    <a href="@url" class="w-img">
+                                                        <img style="width:172px; height:172px;" src="~/images/products/@firstImage" alt="@item.Title" />
+                                                        <img style="width:172px; height:172px;" class="second-img" src="~/images/products/@SeconImage" alt="@item.Title" />
+                                                    </a>
+
+                                                </div>
+                                                <div class="product__content text-center">
+                                                    <h6 class="product-name">
+                                                        <a class="product-item-link" href="@url">@item.ProductName</a>
+                                                    </h6>
+
+                                                    @if (@item.Price != null || @item.Discount != null)
+                                                    {
+                                                        <span class="price" style="text-decoration: line-through">@item.Price.Value.ToString("#,###") VND</span>
+                                                        <span class="price item-price" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="price item-price" style="color:red">Giá liên hệ</span>
+                                                    }
+                                                </div>
+                                                @*  <div class="product__add-btn">
+                                    <button type="button">Thêm vào giỏ hàng</button>
+                                    </div>*@
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-    <!-- blog area end -->
+        </section>
+
+    }
+    <!-- may van phong area end -->
     <!-- back to top btn area start -->
     <section class="back-btn-top">
         <div class="container-fluid p-0">

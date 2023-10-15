@@ -353,7 +353,7 @@
                                 }
                                 &:hover{
                                     & > a{
-                                        color: $black;
+                                        color: $t-yellow;
                                         &::after{
                                             width: 100%;
                                             left: 0;
@@ -365,7 +365,7 @@
                         }
                         &:hover{
                             & > a{
-                                color: $black;
+                                color: $t-yellow;
                             }
                         }
                     }

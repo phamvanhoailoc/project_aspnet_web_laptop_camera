@@ -1395,7 +1395,6 @@ D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Views\Shared\_HeaderPatialView.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Views\Products\Details.cshtml.g.cs
-D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Views\Home\_CategoryPatialView.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminProductCategoris\Create.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminProductCategoris\Delete.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminProductCategoris\Details.cshtml.g.cs
@@ -1409,3 +1408,5 @@ D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminAccounts\Index.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\AdminAccounts\Login.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LoginAdminLayout.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Views\Home\contact.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Views\Products\error.cshtml.g.cs

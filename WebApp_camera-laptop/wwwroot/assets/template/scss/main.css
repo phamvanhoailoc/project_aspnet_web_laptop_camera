@@ -935,7 +935,7 @@ p {
   height: 1px;
 }
 .cat__menu ul li .mega-menu li ul li:hover > a {
-  color: #222;
+  color: #fcb700;
 }
 .cat__menu ul li .mega-menu li ul li:hover > a::after {
   width: 100%;
@@ -943,7 +943,7 @@ p {
   right: auto;
 }
 .cat__menu ul li .mega-menu li:hover > a {
-  color: #222;
+  color: #fcb700;
 }
 .cat__menu-4 ul {
   position: absolute;

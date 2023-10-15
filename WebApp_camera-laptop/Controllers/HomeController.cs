@@ -28,45 +28,43 @@ namespace WebApp_camera_laptop.Controllers
         {
             try
             {
-                int CatId = 11;
                 HomeViewVM model = new HomeViewVM();
-                List<Category> categories = _context.Categories.ToList();
-                List<Category> hierarchicalCategories = BuildCategoryHierarchy(categories);
-                var danhmuc = _context.Categories.AsNoTracking().SingleOrDefault(x => x.CatId == CatId);
-                var IsProducts = _context.Products
-                    .AsNoTracking()
-                    .Where(p => p.ProductCategoris.Any(pc => pc.CatId == danhmuc.CatId))
-                    .OrderByDescending(x => x.DateCreated)
-                    .ToList(); 
 
-                model.Products = IsProducts;
+                var danhmuc = _context.Categories.AsNoTracking().OrderBy(x => x.CatId).ToList();
+                var laptops = _context.Products
+                    .AsNoTracking()
+                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 33))
+                    .OrderByDescending(x => x.ProducerId)
+                    .ToList();
+                var camera = _context.Products
+                    .AsNoTracking()
+                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 32))
+                    .OrderByDescending(x => x.ProducerId)
+                    .ToList();
+                var maybo = _context.Products
+                    .AsNoTracking()
+                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 35))
+                    .OrderByDescending(x => x.ProducerId)
+                    .ToList();
+                var mayvanphong = _context.Products
+                    .AsNoTracking()
+                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 37))
+                    .OrderByDescending(x => x.ProducerId)
+                    .ToList();
+                //model.Products = IsProducts;
                 model.SetDefaultThumbValues();
-                model.Categories = hierarchicalCategories;
+                model.Categories = danhmuc;
+                ViewBag.danhmuc = danhmuc;
+                ViewBag.laptops = laptops;
+                ViewBag.camera = camera;
+                ViewBag.maybo = maybo;
+                ViewBag.mayvanphong = mayvanphong;
                 return View(model);
             }
             catch
             {
                 return RedirectToAction("Index", "Home");
             }
-        }
-        private List<Category> BuildCategoryHierarchy(List<Category> categories)
-        {
-            var categoryLookup = categories.ToDictionary(c => c.CatId);
-
-            foreach (var category in categories)
-            {
-                if (category.ParentId != null)
-                {
-                    var parentCategory = categoryLookup[category.ParentId.Value];
-                    parentCategory.Subcategories ??= new List<Category>();
-                    parentCategory.Subcategories.Add(category);
-                }
-            }
-
-            // Tìm danh mục gốc (laptop và camera) và loại bỏ chúng
-            var rootCategories = categories.Where(c => c.ParentId != null).ToList();
-
-            return rootCategories;
         }
 
         public IActionResult Privacy()
@@ -79,5 +77,14 @@ namespace WebApp_camera_laptop.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [Route("Lien-he.html", Name = "Liên hệ")]
+        public IActionResult Contact()
+        {
+
+            return View();
+        }
+        
+       
     }
 }

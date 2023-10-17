@@ -51,6 +51,7 @@ namespace WebApp_camera_laptop.Areas.Admin.ModelViews
         public string InputPower { get; set; }
         public string Size { get; set; }
         public string Configuration { get; set; }
+        [Required(ErrorMessage = "Tên danh mục không thể bỏ trống")]
         public List<int> ProductCategories { get; set; }
 
     }

@@ -52,12 +52,12 @@ namespace WebApp_camera_laptop.Controllers
                 var danhmuc = _context.Categories.AsNoTracking().SingleOrDefault(x => x.Alias == Alias);
                 var IsProducts = _context.Products
                     .AsNoTracking()
-                    .Where(p => p.ProductCategoris.Any(pc => pc.CatId == danhmuc.CatId))
+                    .Where(p => p.ProductCategoris.Any(pc => pc.CatId == danhmuc.CatId) && p.Active == true)
                     .OrderByDescending(x => x.DateCreated);
                 PagedList<Product> models = new PagedList<Product>(IsProducts.AsQueryable(), page, pageSize);
                 var IsBestsell = _context.Products
                     .AsNoTracking()
-                    .Where(x => x.BestSellers == true)
+                    .Where(x => x.BestSellers == true && x.Active == true)
                     .OrderByDescending(x => x.DateCreated)
                     .Take(4)
                     .ToList();

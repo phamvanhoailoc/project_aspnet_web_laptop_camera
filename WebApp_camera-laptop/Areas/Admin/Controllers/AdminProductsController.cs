@@ -243,11 +243,15 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
                 }
 
                 var product = await _context.Products.FindAsync(id);
+
                 if (product == null)
                 {
                     return NotFound();
                 }
-                ViewData["CatId"] = new SelectList(_context.Categories, "CatId", "CatName", product.CatId);
+                var danhmucList = await _context.ProductCategoris.Where(pc => pc.ProductsId == id).ToListAsync();
+                var catIds = danhmucList.Select(dm => dm.CatId).Distinct().ToList(); // Lấy danh sách các CatId duy nhất từ danhmucList
+
+                ViewData["CatId"] = new MultiSelectList(_context.Categories, "CatId", "CatName", catIds);
                 ViewData["ProducerId"] = new SelectList(_context.Producers, "ProducerId", "ProducerName", product.ProducerId);
                 ViewData["StatusId"] = new SelectList(_context.Statuses, "StatusId", "StatusName", product.StatusId);
                 return View(new ProductsAdminViewModel
@@ -371,6 +375,7 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
                     existingProduct.Configuration = product.Configuration;
                     _context.Update(existingProduct);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Cập nhật sản phẩm thành công");
 
                     // Sử dụng DbContext.Entry để lấy đối tượng sau khi đã thêm vào cơ sở dữ liệu
                     var addedProduct = _context.Entry(existingProduct).Entity;

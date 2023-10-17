@@ -33,22 +33,22 @@ namespace WebApp_camera_laptop.Controllers
                 var danhmuc = _context.Categories.AsNoTracking().OrderBy(x => x.CatId).ToList();
                 var laptops = _context.Products
                     .AsNoTracking()
-                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 33))
+                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 33) && x.Active == true)
                     .OrderByDescending(x => x.ProducerId)
                     .ToList();
                 var camera = _context.Products
                     .AsNoTracking()
-                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 32))
+                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 32) && x.Active == true)
                     .OrderByDescending(x => x.ProducerId)
                     .ToList();
                 var maybo = _context.Products
                     .AsNoTracking()
-                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 35))
+                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 35) && x.Active == true)
                     .OrderByDescending(x => x.ProducerId)
                     .ToList();
                 var mayvanphong = _context.Products
                     .AsNoTracking()
-                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 37))
+                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 37) && x.Active == true)
                     .OrderByDescending(x => x.ProducerId)
                     .ToList();
                 //model.Products = IsProducts;

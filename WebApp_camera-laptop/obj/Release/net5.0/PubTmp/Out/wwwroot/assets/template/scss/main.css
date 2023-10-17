@@ -5569,7 +5569,7 @@ p.checkout-coupon input[type=text]:focus {
   opacity: 0.6;
 }
 .footer__social ul li {
-  display: inline-block;
+  display: block;
   margin-right: 8px;
   margin-bottom: 10px;
 }

@@ -78,9 +78,9 @@
                         <div class="btn-group margin-top-10">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hành động <span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                                <li><a asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">Chi tiết</a></li>
+                                @*<li><a asp-area="Admin" asp-controller="AdminProducts" asp-action="Details" asp-route-id="@item.ProductId">Chi tiết</a></li>*@
                                 <li><a asp-area="Admin" asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@item.ProductId">Chỉnh sửa</a></li>
-                                <li><a asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">Xóa</a></li>
+                               @* <li><a asp-area="Admin" asp-controller="AdminProducts" asp-action="Delete" asp-route-id="@item.ProductId">Xóa</a></li>*@
                             </ul>
                         </div>
                     </td>

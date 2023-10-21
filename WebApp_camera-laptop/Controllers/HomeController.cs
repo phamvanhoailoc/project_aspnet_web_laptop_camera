@@ -34,23 +34,39 @@ namespace WebApp_camera_laptop.Controllers
                 var laptops = _context.Products
                     .AsNoTracking()
                     .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 33) && x.Active == true)
-                    .OrderByDescending(x => x.ProducerId)
+                    .OrderByDescending(x => x.ProductId)
                     .ToList();
                 var camera = _context.Products
                     .AsNoTracking()
                     .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 32) && x.Active == true)
-                    .OrderByDescending(x => x.ProducerId)
+                    .OrderByDescending(x => x.ProductId)
                     .ToList();
                 var maybo = _context.Products
                     .AsNoTracking()
                     .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 35) && x.Active == true)
-                    .OrderByDescending(x => x.ProducerId)
+                    .OrderByDescending(x => x.ProductId)
                     .ToList();
                 var mayvanphong = _context.Products
                     .AsNoTracking()
                     .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 37) && x.Active == true)
-                    .OrderByDescending(x => x.ProducerId)
+                    .OrderByDescending(x => x.ProductId)
                     .ToList();
+                var linhkienmaytinh = _context.Products
+                    .AsNoTracking()
+                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 34) && x.Active == true)
+                    .OrderByDescending(x => x.ProductId)
+                    .ToList();
+                var thietbianninh = _context.Products
+                    .AsNoTracking()
+                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 38) && x.Active == true)
+                    .OrderByDescending(x => x.ProductId)
+                    .ToList();
+                var thietbimang = _context.Products
+                    .AsNoTracking()
+                    .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 40) && x.Active == true)
+                    .OrderByDescending(x => x.ProductId)
+                    .ToList();
+
                 //model.Products = IsProducts;
                 model.SetDefaultThumbValues();
                 model.Categories = danhmuc;
@@ -59,6 +75,9 @@ namespace WebApp_camera_laptop.Controllers
                 ViewBag.camera = camera;
                 ViewBag.maybo = maybo;
                 ViewBag.mayvanphong = mayvanphong;
+                ViewBag.linhkienmaytinh = linhkienmaytinh;
+                ViewBag.thietbianninh = thietbianninh;
+                ViewBag.thietbimang = thietbimang;
                 return View(model);
             }
             catch
@@ -84,7 +103,8 @@ namespace WebApp_camera_laptop.Controllers
 
             return View();
         }
+
         
-       
+
     }
 }

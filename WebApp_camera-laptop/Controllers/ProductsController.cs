@@ -94,6 +94,7 @@ namespace WebApp_camera_laptop.Controllers
                    .Take(4)
                    .ToList();
                 ViewBag.sanpham = IsProduct;
+                ViewBag.NameProduct = product;
                 return View(product);
             }
             catch

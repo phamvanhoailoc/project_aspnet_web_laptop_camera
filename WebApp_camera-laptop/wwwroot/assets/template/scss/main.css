@@ -53,6 +53,35 @@ a {
   width: 100%;
 }
 
+.p-img img {
+  max-width: 100%;
+  aspect-ratio: 1/1;
+}
+@media screen and (min-width: 1600px), only screen and (min-width: 1400px) and (max-width: 1600px), only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .p-img {
+    width: 183px;
+    height: 183px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .p-img {
+    width: 274px;
+    height: 274px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .p-img {
+    width: 314px;
+    height: 314px;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
+  .p-img {
+    width: 314px;
+    height: 314px;
+  }
+}
+
 .m-img img {
   max-width: 100%;
 }
@@ -504,6 +533,23 @@ p {
   border-top: 1px solid #e6e6e6;
 }
 
+.hotline-container {
+  position: fixed;
+  z-index: 9999;
+  bottom: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hotline-container:hover {
+  background-color: #0056b3;
+}
+
 /*----------------------------------------*/
 /*  00. BUTTONS CSS START
 /*----------------------------------------*/
@@ -741,6 +787,16 @@ p {
   -webkit-border-radius: 5px 5px 0 0;
   -moz-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
+}
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+  .cat-toggle-2 {
+    min-height: 474px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .cat-toggle-2 {
+    min-height: 512px;
+  }
 }
 
 .cat__menu ul {
@@ -2229,7 +2285,45 @@ p {
 .features__item-4 .features__icon i {
   color: #222;
 }
+.features__item_detail {
+  padding: 25px;
+  position: relative;
+}
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .features__item_detail {
+    padding: 25px 20px;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .features__item_detail {
+    padding: 25px 20px;
+  }
+}
+.features__item_detail::after {
+  position: absolute;
+  content: "";
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 1px;
+  height: 50%;
+}
+@media (max-width: 575px) {
+  .features__item_detail::after {
+    display: none;
+  }
+}
+.features__item_detail-last::after {
+  display: none;
+}
+.features__item_detail-4 .features__icon i {
+  color: #222;
+}
 .features__icon i {
+  margin-right: 10px;
   font-size: 40px;
   color: #fcb700;
 }
@@ -2290,6 +2384,7 @@ p {
 }
 .product__item.product__item-2 {
   border: 2px solid #ebebeb;
+  min-height: 360px;
 }
 .product__item.product__item-2:hover {
   border-color: #fcb700;
@@ -2417,6 +2512,9 @@ p {
   background: #d01418;
   border-color: #d01418;
 }
+.product__content {
+  min-height: 123px;
+}
 .product__content h6 {
   padding-top: 15px;
   font-size: 14px;
@@ -2424,6 +2522,16 @@ p {
   color: #0066c0;
   line-height: 18px;
   margin-bottom: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.product__content h6 a {
+  display: block;
+  max-height: 3.6em;
+  text-decoration: none;
 }
 .product__content h6:hover a {
   text-decoration: underline;
@@ -3063,9 +3171,44 @@ p {
     margin-top: 30px;
   }
 }
-@media only screen and (min-width: 1400px) and (max-width: 1600px), only screen and (min-width: 1200px) and (max-width: 1399px), only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 576px) and (max-width: 767px), (max-width: 575px) {
-  .product__details-nav-thumb img {
-    width: 100%;
+.product__details-nav-thumb img {
+  max-width: 100%;
+  aspect-ratio: 1/1;
+}
+@media screen and (min-width: 1600px) {
+  .product__details-nav-thumb {
+    width: 375px;
+    height: 375px;
+  }
+}
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+  .product__details-nav-thumb {
+    width: 350px;
+    height: 350px;
+  }
+}
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .product__details-nav-thumb {
+    width: 375px;
+    height: 375px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .product__details-nav-thumb {
+    width: 291px;
+    height: 291px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .product__details-nav-thumb {
+    width: 600px;
+    height: 600px;
+  }
+}
+@media sm, xs {
+  .product__details-nav-thumb {
+    width: 538px;
+    height: 538px;
   }
 }
 .product__details-nav .nav-tabs {
@@ -4340,6 +4483,24 @@ p.checkout-coupon input[type=text]:focus {
   width: 100%;
 }
 
+.item-price {
+  color: #fff;
+  font-weight: 700;
+  background: #fcb700;
+  width: 160px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 20px;
+  display: block;
+  text-align: center;
+  border-radius: 16px;
+  margin: 10px auto 0;
+  position: absolute;
+  bottom: 37px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /*----------------------------------------*/
 /*  07. SALE CSS START
 /*----------------------------------------*/
@@ -4994,7 +5155,8 @@ p.checkout-coupon input[type=text]:focus {
   color: #fcb700;
 }
 .about__text {
-  margin-bottom: 35px;
+  margin-bottom: 25px;
+  color: black;
 }
 
 .why__item:hover .why__thumb img {

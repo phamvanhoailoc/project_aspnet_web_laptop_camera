@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using WebApp_camera_laptop.Helpper;
 using WebApp_camera_laptop.Models;
 
 namespace WebApp_camera_laptop.Areas.Admin.Controllers
@@ -69,6 +70,8 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                string baseImageName = Utilities.SEOUrl(category.CatName);
+                category.Alias = baseImageName;
                 _context.Add(category);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -114,6 +117,8 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
             {
                 try
                 {
+                    string baseImageName = Utilities.SEOUrl(category.CatName);
+                    category.Alias = baseImageName;
                     _context.Update(category);
                     await _context.SaveChangesAsync();
                 }

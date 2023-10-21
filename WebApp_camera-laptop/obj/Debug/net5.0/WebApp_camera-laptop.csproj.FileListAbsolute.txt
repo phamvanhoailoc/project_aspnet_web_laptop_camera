@@ -1410,3 +1410,5 @@ D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LoginAdminLayout.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Views\Home\contact.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Views\Products\error.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Views\ChinhSach\PageChinhSachDoiTra.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Debug\net5.0\Razor\Views\ChinhSach\PageChinhSachBaoHanh.cshtml.g.cs

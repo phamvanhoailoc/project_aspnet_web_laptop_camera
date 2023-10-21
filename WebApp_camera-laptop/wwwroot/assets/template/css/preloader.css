@@ -1,5 +1,5 @@
 #loading{
-	background-color: #fff;
+	background-color:rgba(255, 255, 255, 0.7);
 	height: 100%;
 	width: 100%;
 	position: fixed;
@@ -24,7 +24,6 @@
 #object{
 	width: 80px;
 	height: 80px;
-	background-color: #fcb700;
 	-webkit-animation: animate 1s infinite ease-in-out;
 	animation: animate 1s infinite ease-in-out;
 	margin-right: auto;
@@ -32,20 +31,20 @@
 	margin-top: 60px;
 }
 @-webkit-keyframes animate {
-  0% { -webkit-transform: perspective(160px); }
-  50% { -webkit-transform: perspective(160px) rotateY(-180deg); }
-  100% { -webkit-transform: perspective(160px) rotateY(-180deg) rotateX(-180deg); }
-}
-
-@keyframes animate {
-  0% { 
-    transform: perspective(160px) rotateX(0deg) rotateY(0deg);
-    -webkit-transform: perspective(160px) rotateX(0deg) rotateY(0deg); 
-  } 50% { 
-    transform: perspective(160px) rotateX(-180deg) rotateY(0deg);
-    -webkit-transform: perspective(160px) rotateX(-180deg) rotateY(0deg) ;
-  } 100% { 
-    transform: perspective(160px) rotateX(-180deg) rotateY(-180deg);
-    -webkit-transform: perspective(160px) rotateX(-180deg) rotateY(-180deg);
+	0% { -webkit-transform: perspective(160px); }
+	50% { -webkit-transform: perspective(160px) scale(0.5); }
+	100% { -webkit-transform: perspective(160px) scale(0.5); }
   }
-}
+  
+  @keyframes animate {
+	0% { 
+	  transform: perspective(160px) scale(1);
+	  -webkit-transform: perspective(160px) scale(1);
+	} 50% { 
+	  transform: perspective(160px) scale(0.5);
+	  -webkit-transform: perspective(160px) scale(0.5);
+	} 100% { 
+	  transform: perspective(160px) scale(0.5);
+	  -webkit-transform: perspective(160px) scale(0.5);
+	}
+  }

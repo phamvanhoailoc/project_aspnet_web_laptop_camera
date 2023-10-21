@@ -37,6 +37,7 @@
         overflow: hidden;
         &.product__item-2{
           border: 2px solid $border;
+          min-height: 360px;
           &:hover{
             border-color: $t-yellow;
             @include box-shadow(none);
@@ -158,6 +159,7 @@
         }
     }
     &__content{
+        min-height: 123px;
         & h6{
             padding-top: 15px;
             font-size: 14px;
@@ -165,6 +167,17 @@
             color: $t-blue;
             line-height: 18px;
             margin-bottom: 2px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            & a {
+                display: block;
+                max-height: 3.6em; 
+                text-decoration: none; 
+            }
+
             &:hover{
                 & a{
                     text-decoration: underline;
@@ -830,10 +843,39 @@
         &-nav{
             &-thumb{
                 & img{
-                    @media #{$xxl, $laptop, $lg, $md, $sm, $xs}{
-                        width: 100%;
-                    }
+                    max-width: 100%;
+		            aspect-ratio: 1/1;
                 }
+
+            @media #{$xxxl} {
+                width: 375px;
+                height: 375px;
+            }
+            @media #{ $xxl} {
+                width: 350px;
+                height: 350px;
+            }
+            @media #{$laptop} {
+                width: 375px;
+                height: 375px;
+            }
+
+            @media #{$lg} {
+                width: 291px;
+                height: 291px;
+            }
+            
+            
+            @media #{$md} {
+                width: 600px;
+                height: 600px;
+            }
+            
+
+            @media #{sm, xs} {
+                width: 538px;
+                height: 538px;
+            }
             }
             & .nav-tabs{
                 border: none;
@@ -2109,4 +2151,21 @@ p.checkout-coupon input[type="text"] {
 
 .order-button-payment button {
   width: 100%;
+}
+.item-price {
+    color: #fff;
+    font-weight: 700;
+    background: #fcb700;
+    width: 160px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    border-radius: 16px;
+    margin: 10px auto 0;
+    position: absolute;
+    bottom: 37px;
+    left: 50%;
+    transform: translateX(-50%);
 }

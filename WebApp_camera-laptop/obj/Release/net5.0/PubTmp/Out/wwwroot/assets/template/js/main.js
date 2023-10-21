@@ -340,37 +340,45 @@
 
 	////////////////////////////////////////////////////
     // 10. Product Slider Js
-	$('.product__slider').owlCarousel({
-		loop:true,
-		margin:20,
-		autoplay:false,
-		autoplayTimeout:3000,
-		smartSpeed:500,
-		items:6,
-		navText:['<button><i class="fal fa-angle-left"></i></button>','<button><i class="fal fa-angle-right"></i></button>'],
-		nav:true,
-		dots:false,
-		responsive:{
-			0:{
-				items:1
-			},
-			576:{
-				items:2
-			},
-			767:{
-				items:2
-			},
-			992:{
-				items:3
-			},
-			1200:{
-				items:5
-			},
-			1600:{
-				items:6
+	
+
+	function productSlider() {
+		var BasicSlider = $('.product__slider');
+		
+		BasicSlider.owlCarousel({
+			loop:true,
+			margin:20,
+			autoplay:true,
+			autoplayTimeout:3000,
+			smartSpeed:500,
+			items:6,
+			navText:['<button><i class="fal fa-angle-left"></i></button>','<button><i class="fal fa-angle-right"></i></button>'],
+			nav:true,
+			dots:false,
+			responsive:{
+				0:{
+					items:1
+				},
+				576:{
+					items:2
+				},
+				767:{
+					items:2
+				},
+				992:{
+					items:3
+				},
+				1200:{
+					items:5
+				},
+				1600:{
+					items:6
+				}
 			}
+		});
 		}
-	});
+		productSlider();
+	
 
 
 	////////////////////////////////////////////////////
@@ -931,41 +939,65 @@
 
 	////////////////////////////////////////////////////
     // 10. testimonial__slider  Js
-	$('.brand__slider').owlCarousel({
-		loop:true,
-		margin:30,
-		autoplay:false,
-		autoplayTimeout:3000,
-		smartSpeed:500,
-		items:6,
-		navText:['<button><i class="fal fa-angle-left"></i></button>','<button><i class="fal fa-angle-right"></i></button>'],
-		nav:false,
-		dots:false,
-		responsive:{
-			0:{
-				items:1
-			},
-			576:{
-				items:2
-			},
-			767:{
-				items:3
-			},
-			992:{
-				items:4
-			},
-			1200:{
-				items:6
-			},
-			1600:{
-				items:7
+	function mainSliderBrand() {
+		var BasicSlider = $('.brand__slider');
+		BasicSlider.on('init', function (e, slick) {
+			var $firstAnimatingElements = $('.brand__item:first-child').find('[data-animation]');
+			doAnimations($firstAnimatingElements);
+		});
+		BasicSlider.on('beforeChange', function (e, slick, currentSlide, nextSlide) {
+			var $animatingElements = $('.brand__item[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
+			doAnimations($animatingElements);
+		});
+		BasicSlider.owlCarousel({
+			loop:true,
+			margin:30,
+			autoplay:true,
+			autoplaySpeed:1000,
+			items:6,
+			navText:['<button><i class="fal fa-angle-left"></i></button>','<button><i class="fal fa-angle-right"></i></button>'],
+			nav:false,
+			dots:false,
+			responsive:{
+				0:{
+					items:1
+				},
+				576:{
+					items:2
+				},
+				767:{
+					items:3
+				},
+				992:{
+					items:4
+				},
+				1200:{
+					items:6
+				},
+				1600:{
+					items:7
+				}
 			}
+		});
+		
+		function doAnimations(elements) {
+			var animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+			elements.each(function () {
+			var $this = $(this);
+			var $animationDelay = $this.data('delay');
+			var $animationType = 'animated ' + $this.data('animation');
+			$this.css({
+				'animation-delay': $animationDelay,
+				'-webkit-animation-delay': $animationDelay
+			});
+			$this.addClass($animationType).one(animationEndEvents, function () {
+				$this.removeClass($animationType);
+			});
+			});
 		}
-	});
-
-
-
-
+		}
+		mainSliderBrand();
+	
 
 	////////////////////////////////////////////////////
     // 19. Masonary Js

@@ -198,6 +198,7 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
                     };
                     _context.Add(products);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Tạo sản phẩm thành công");
 
                     // Sử dụng DbContext.Entry để lấy đối tượng sau khi đã thêm vào cơ sở dữ liệu
                     var addedProduct = _context.Entry(products).Entity;

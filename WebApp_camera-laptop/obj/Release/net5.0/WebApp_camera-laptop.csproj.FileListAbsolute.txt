@@ -484,3 +484,5 @@ D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\WebApp_camera-laptop.pdb
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\WebApp_camera-laptop.genruntimeconfig.cache
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\ref\WebApp_camera-laptop.dll
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\Razor\Views\ChinhSach\PageChinhSachBaoHanh.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\Razor\Views\ChinhSach\PageChinhSachDoiTra.cshtml.g.cs

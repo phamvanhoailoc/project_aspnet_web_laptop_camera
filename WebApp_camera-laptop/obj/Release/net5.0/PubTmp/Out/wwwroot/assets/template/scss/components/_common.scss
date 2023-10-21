@@ -57,6 +57,37 @@ a{
 		width: 100%;
 	}
 }
+
+.p-img{
+	& img {
+        max-width: 100%;
+		aspect-ratio: 1/1;
+    }
+
+   
+	@media #{$xxxl, $xxl, $laptop} {
+		width: 183px;
+		height: 183px;
+	}
+	
+	
+	@media #{$lg} {
+		width: 274px;
+		height: 274px;
+	}
+	
+	
+	@media #{$md} {
+		width: 314px;
+		height: 314px;
+	}
+	
+	
+	@media #{$sm, $xs} {
+		width: 314px;
+		height: 314px;
+	}
+}
 .m-img{
 	& img{
 		max-width: 100%;
@@ -495,4 +526,21 @@ p {
 	&-border{
 		border-top: 1px solid #e6e6e6;
 	}
+}
+
+.hotline-container {
+	position: fixed;
+	z-index: 9999;
+	bottom: 20px;
+	background-color: #007bff;
+	color: #fff;
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 18px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.hotline-container:hover {
+	background-color: #0056b3;
 }

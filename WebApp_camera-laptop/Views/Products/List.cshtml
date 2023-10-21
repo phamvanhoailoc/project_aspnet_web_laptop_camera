@@ -5,14 +5,13 @@
     int CurrentPage = ViewBag.CurrentPage;
     int PageNext = CurrentPage + 1;
     Category category = ViewBag.CurrentCat;
-    ViewData["Title"] = category.Title + " " + ViewBag.CurrentPage;
-    ViewData["Title"] = "List";
+    ViewData["Title"] = category.CatName + " Page " + ViewBag.CurrentPage;
     Layout = "~/Views/Shared/_Layout.cshtml";
     List<Product> IsBestSell = ViewBag.BestSell;
 }
 @section Styles{
     <style>
-        .item-price {
+        .item-price_list {
             color: #fff;
             font-weight: 700;
             background: #fcb700;
@@ -30,7 +29,7 @@
 <main>
     <!-- breadcrumb area start -->
     <section class="breadcrumb__area box-plr-75">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-xxl-12">
                     <div class="breadcrumb__wrapper">
@@ -48,7 +47,7 @@
     <!-- breadcrumb area end -->
     <!-- product area start -->
     <section class="product__area box-plr-75 pb-70">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-xxl-2 col-xl-3 col-lg-4">
                     <div class="product__widget">
@@ -177,9 +176,8 @@
                                                 <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4">
                                                     <div class="product__item white-bg mb-30">
                                                         <div class="product__thumb p-relative">
-                                                            <a href="@url" class="w-img">
-                                                                <img style="width:172px; height:172px;" src="~/images/products/@firstImage" alt="@item.Title">
-                                                                <img style="width:172px; height:172px;" class="second-img" src="~/images/products/@SeconImage" alt="@item.Title">
+                                                            <a href="@url" class="p-img">
+                                                                <img  src="~/images/products/@firstImage" alt="@item.Title">
                                                             </a>
                                                             <div class="product__action p-absolute">
                                                                 <ul>
@@ -253,8 +251,7 @@
                                                     <div class="product__item product__list white-bg mb-30 d-md-flex">
                                                         <div class="product__thumb p-relative mr-20">
                                                             <a href="@url" class="w-img">
-                                                                <img style="width:172px; height:172px;"  src="~/images/products/@firstImage" alt="@item.Title">
-                                                                <img style="width:172px; height:172px;" class="second-img" src="~/images/products/@SeconImage" alt="@item.Title">
+                                                                <img   src="~/images/products/@firstImage" alt="@item.Title">
                                                             </a>
                                                         </div>
                                                         <div class="product__content">
@@ -277,11 +274,11 @@
                                                             @if (@item.Price != null || @item.Discount != null)
                                                             {
                                                                 <span class="price" style="text-decoration: line-through">@item.Price.Value.ToString("#,###") VND</span>
-                                                                <span class="price item-price" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
+                                                                <span class="price item-price_list" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
                                                             }
                                                             else
                                                             {
-                                                                <span class="price item-price" style="color:red">Giá liên hệ</span>
+                                                                <span class="price item-price_list" style="color:red">Giá liên hệ</span>
                                                             }
                                                             <p class="product-text">@item.ShortDesc</p>
                                                             <div class="product__list-features">

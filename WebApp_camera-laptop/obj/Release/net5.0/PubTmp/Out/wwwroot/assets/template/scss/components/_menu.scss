@@ -172,6 +172,12 @@
 .cat-toggle-2{
   border: 2px solid $t-yellow;
   @include border-radius(5px 5px 0 0);
+  @media #{$xxl} {
+    min-height: 474px;
+}
+@media #{$xxxl} {
+    min-height: 512px;
+}
 }
 
 .cat{

@@ -64,7 +64,7 @@ namespace WebApp_camera_laptop
             app.UseAuthentication();
             app.UseAuthorization();
             // Áp dụng Middleware kiểm tra đăng nhập sau khi cấu hình các routes
-            //app.UseMiddleware<AuthenticationMiddleware>();
+            app.UseMiddleware<AuthenticationMiddleware>();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

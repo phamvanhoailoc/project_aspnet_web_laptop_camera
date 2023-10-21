@@ -88,11 +88,11 @@
                                                         @if (@item.Price != null || @item.Discount != null)
                                                         {
                                                             <span class="price" style="text-decoration: line-through">@item.Price.Value.ToString("#,###") VND</span>
-                                                            <span class="price item-price" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
+                                                            <span class="price item-price_list" style="color:red">@item.Discount.Value.ToString("#,###") VND</span>
                                                         }
                                                         else
                                                         {
-                                                            <span class="price item-price" style="color:red">Giá liên hệ</span>
+                                                            <span class="price item-price_list" style="color:red">Giá liên hệ</span>
                                                         }
                                                     </div>
                                                 </div>

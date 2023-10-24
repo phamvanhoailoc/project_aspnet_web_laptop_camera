@@ -18,6 +18,7 @@ namespace WebApp_camera_laptop.Models
         }
 
         public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<CategoriesNews> CategoriesNews { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Location> Locations { get; set; }
@@ -76,6 +77,21 @@ namespace WebApp_camera_laptop.Models
                     .HasConstraintName("FK_Accounts_Roles");
             });
 
+            modelBuilder.Entity<CategoriesNews>(entity =>
+            {
+                entity.HasKey(e => e.CatNewId);
+
+                entity.Property(e => e.Alias).HasMaxLength(255);
+
+                entity.Property(e => e.CatName).HasMaxLength(255);
+
+                entity.Property(e => e.MetaDesc).HasMaxLength(255);
+
+                entity.Property(e => e.MetaKey).HasMaxLength(255);
+
+                entity.Property(e => e.Title).HasMaxLength(255);
+            });
+
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.HasKey(e => e.CatId);
@@ -99,9 +115,6 @@ namespace WebApp_camera_laptop.Models
                 entity.Property(e => e.Thumb).HasMaxLength(250);
 
                 entity.Property(e => e.Title).HasMaxLength(250);
-                entity.HasOne(c => c.ParentCategory)
-                       .WithMany(c => c.Subcategories)
-                       .HasForeignKey(c => c.ParentId);
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -181,11 +194,7 @@ namespace WebApp_camera_laptop.Models
 
                 entity.Property(e => e.MetaKey).HasMaxLength(255);
 
-                entity.Property(e => e.Scontents)
-                    .HasMaxLength(255)
-                    .HasColumnName("SContents");
-
-                entity.Property(e => e.Thumb).HasMaxLength(255);
+                entity.Property(e => e.Scontents).HasColumnName("SContents");
 
                 entity.Property(e => e.Title).HasMaxLength(255);
 
@@ -193,6 +202,11 @@ namespace WebApp_camera_laptop.Models
                     .WithMany(p => p.News)
                     .HasForeignKey(d => d.AccountId)
                     .HasConstraintName("FK_News_Accounts");
+
+                entity.HasOne(d => d.Cat)
+                    .WithMany(p => p.News)
+                    .HasForeignKey(d => d.CatId)
+                    .HasConstraintName("FK_News_CategoriesNews");
             });
 
             modelBuilder.Entity<Order>(entity =>

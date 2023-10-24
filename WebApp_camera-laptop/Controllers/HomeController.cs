@@ -66,6 +66,11 @@ namespace WebApp_camera_laptop.Controllers
                     .Where(x => x.HomeFlag == true && x.ProductCategoris.Any(pc => pc.CatId == 40) && x.Active == true)
                     .OrderByDescending(x => x.ProductId)
                     .ToList();
+                var duan = _context.News
+                    .AsNoTracking()
+                    .Where(x => x.IsNewfeed == true && x.CatId == 1 && x.Published == true)
+                    .OrderByDescending(x => x.NewId)
+                    .ToList();
 
                 //model.Products = IsProducts;
                 model.SetDefaultThumbValues();
@@ -78,6 +83,7 @@ namespace WebApp_camera_laptop.Controllers
                 ViewBag.linhkienmaytinh = linhkienmaytinh;
                 ViewBag.thietbianninh = thietbianninh;
                 ViewBag.thietbimang = thietbimang;
+                ViewBag.duan = duan;
                 return View(model);
             }
             catch

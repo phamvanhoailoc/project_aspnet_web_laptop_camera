@@ -28,7 +28,5 @@ namespace WebApp_camera_laptop.Models
         public string SchemaMarkup { get; set; }
 
         public virtual ICollection<ProductCategori> ProductCategoris { get; set; }
-        public virtual Category ParentCategory { get; set; }
-        public virtual ICollection<Category> Subcategories { get; set; }
     }
 }

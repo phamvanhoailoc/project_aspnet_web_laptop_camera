@@ -16,7 +16,7 @@ namespace WebApp_camera_laptop.Controllers
             _context = context;
         }
 
-    
+        [Route("/sanpham", Name = "IndexProduct")]
         public IActionResult Index(int? page)
         {
             try
@@ -43,7 +43,7 @@ namespace WebApp_camera_laptop.Controllers
             }
         }
 
-        [Route("/{Alias}", Name = "ListProduct")]
+        [Route("/sanpham/{Alias}", Name = "ListProduct")]
         public IActionResult List(string Alias, int page = 1)
         {
             try
@@ -73,7 +73,7 @@ namespace WebApp_camera_laptop.Controllers
 
         }
 
-        [Route("/{Alias}-{ProductId}.html", Name = "ProductDetails")]
+        [Route("/sanpham/{Alias}-{ProductId}.html", Name = "ProductDetails")]
         public IActionResult Details(int ProductId)
         {
             try

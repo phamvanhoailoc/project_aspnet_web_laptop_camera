@@ -9,6 +9,7 @@
     List<Product> linhkienmaytinhs = ViewBag.linhkienmaytinh;
     List<Product> thietbianninhs = ViewBag.thietbianninh;
     List<Product> thietbimangs = ViewBag.thietbimang;
+    List<News> duans = ViewBag.duan;
 }
 
 @section Styles{
@@ -196,7 +197,7 @@
                             <div class="product__nav-tab mr-75">
                                 <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" href="laptop">Xem thêm</a>
+                                        <a class="nav-link active" href="sanpham/laptop">Xem thêm</a>
                                     </li> 
                                 </ul>
                             </div>
@@ -214,7 +215,7 @@
                                         string SeconImage = null;
                                         foreach (var item in laptops)
                                         {
-                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            string url = $"/sanpham/{item.Alias}-{item.ProductId}.html";
                                             if (item.Thumb != null)
                                             {
                                                 string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
@@ -313,7 +314,7 @@
                             <div class="product__nav-tab mr-75">
                                 <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" href="camera">Xem thêm</a>
+                                        <a class="nav-link active" href="sanpham/camera">Xem thêm</a>
                                     </li>
                                 </ul>
                             </div>
@@ -331,7 +332,7 @@
                                         string SeconImage = null;
                                         foreach (var item in cameras)
                                         {
-                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            string url = $"/sanpham/{item.Alias}-{item.ProductId}.html";
                                             if (item.Thumb != null)
                                             {
                                                 string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
@@ -429,7 +430,7 @@
                             <div class="product__nav-tab mr-75">
                                 <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" href="linh-kien-may-tinh">Xem thêm</a>
+                                        <a class="nav-link active" href="sanpham/linh-kien-may-tinh">Xem thêm</a>
                                     </li>
                                 </ul>
                             </div>
@@ -447,7 +448,7 @@
                                         string SeconImage = null;
                                         foreach (var item in linhkienmaytinhs)
                                         {
-                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            string url = $"/sanpham/{item.Alias}-{item.ProductId}.html";
                                             if (item.Thumb != null)
                                             {
                                                 string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
@@ -553,7 +554,7 @@
                             <div class="product__nav-tab mr-75">
                                 <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" href="thiet-bi-mang">Xem thêm</a>
+                                        <a class="nav-link active" href="sanpham/thiet-bi-mang">Xem thêm</a>
                                     </li>
                                 </ul>
                             </div>
@@ -571,7 +572,7 @@
                                         string SeconImage = null;
                                         foreach (var item in thietbimangs)
                                         {
-                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            string url = $"/sanpham/{item.Alias}-{item.ProductId}.html";
                                             if (item.Thumb != null)
                                             {
                                                 string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
@@ -640,7 +641,7 @@
                             <div class="product__nav-tab mr-75">
                                 <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" href="may-tinh-de-ban">Xem thêm</a>
+                                        <a class="nav-link active" href="sanpham/may-tinh-de-ban">Xem thêm</a>
                                     </li>
                                 </ul>
                             </div>
@@ -658,7 +659,7 @@
                                         string SeconImage = null;
                                         foreach (var item in maybos)
                                         {
-                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            string url = $"/sanpham/{item.Alias}-{item.ProductId}.html";
                                             if (item.Thumb != null)
                                             {
                                                 string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
@@ -724,7 +725,7 @@
                             <div class="product__nav-tab mr-75">
                                 <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" href="may-van-phong">Xem thêm</a>
+                                        <a class="nav-link active" href="sanpham/may-van-phong">Xem thêm</a>
                                     </li>
                                 </ul>
                             </div>
@@ -742,7 +743,7 @@
                                         string SeconImage = null;
                                         foreach (var item in mayvanphongs)
                                         {
-                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            string url = $"/sanpham/{item.Alias}-{item.ProductId}.html";
                                             if (item.Thumb != null)
                                             {
                                                 string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
@@ -811,7 +812,7 @@
                             <div class="product__nav-tab mr-75">
                                 <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <a class="nav-link active" href="thiet-bi-an-ninh">Xem thêm</a>
+                                        <a class="nav-link active" href="sanpham/thiet-bi-an-ninh">Xem thêm</a>
                                     </li>
                                 </ul>
                             </div>
@@ -829,7 +830,7 @@
                                         string SeconImage = null;
                                         foreach (var item in thietbianninhs)
                                         {
-                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            string url = $"/sanpham/{item.Alias}-{item.ProductId}.html";
                                             if (item.Thumb != null)
                                             {
                                                 string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
@@ -870,6 +871,82 @@
                                                 @*  <div class="product__add-btn">
                                     <button type="button">Thêm vào giỏ hàng</button>
                                     </div>*@
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    }
+    <!-- may van phong area end -->
+    <!-- may van phong area start -->
+    @if (duans != null && duans.Count() > 0)
+    {
+        <section class="onsell__area pt-15 pb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="section__head d-md-flex justify-content-between mb-40">
+                            <div class="section__title">
+                                <h3>Dự án tiêu biểu<span></span></h3>
+                            </div>
+                            <div class="product__nav-tab mr-75">
+                                <ul class="nav nav-tabs" id="best-sell-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link active" href="/baiviet/du-an">Xem thêm</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="tab-content" id="best-sell-tabContent">
+                            <div class="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
+                                <div class="blog__slider owl-carousel">
+                                    @if (duans != null && duans.Count() > 0)
+                                    {
+                                        string firstImage = null;
+                                        string SeconImage = null;
+                                        foreach (var item in duans)
+                                        {
+                                            string url = $"/baiviet/{item.Alias}-{item.NewId}.html";
+                                            if (item.Thumb != null)
+                                            {
+                                                string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
+
+                                                if (imageList.Length >= 1)
+                                                {
+                                                    firstImage = imageList[0]; // Lấy hình đầu tiên từ danh sách
+                                                }
+
+                                                if (imageList.Length >= 2)
+                                                {
+                                                    SeconImage = imageList[1]; // Lấy hình thứ hai từ danh sách
+                                                }
+                                            }
+
+                                            <div class="blog__item mb-30">
+                                                <div class="blog__thumb fix">
+                                                    <a href="@url">
+                                                        <img src="~/images/news/@firstImage" alt="@item.Title" />
+                                                    </a>
+                                                </div>
+                                                <div class="blog__content white-bg">
+                                                    <h3><a href="@url">@item.Title</a></h3>
+                                                    <div class="blog__meta">
+                                                        <span>Ngày đăng:</span>
+                                                        <span class="date"> @item.CreatedDate</span>
+                                                    </div>
+                                                    <p>@item.Scontents</p>
+                                                </div>
                                             </div>
                                         }
                                     }

@@ -1,0 +1,114 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<WebApp_camera_laptop.Models.News>
+
+@{
+    int CurrentPage = ViewBag.CurrentPage;
+    int PageNext = CurrentPage + 1;
+    CategoriesNews category = ViewBag.CurrentCat;
+    ViewData["Title"] = category.CatName + " Page " + ViewBag.CurrentPage;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<News> baiviethot = ViewBag.Baiviethot;
+}
+
+<main>
+
+    <!-- breadcrumb area start -->
+    <section class="breadcrumb__area box-plr-75">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-12">
+                    <div class="breadcrumb__wrapper">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Dự án</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb area end -->
+    <!-- blog area start -->
+    <section class="blog__area box-plr-75 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-2 col-xl-3 col-lg-3">
+                    <div class="sidebar__widget">
+                        <div class="sidebar__widget-item mb-35">
+                            <h3 class="sidebar__widget-title mb-30">Bài viết nổi bậc</h3>
+                            <div class="sidebar__post rc__post">
+                                <ul>
+                                    @if (baiviethot != null)
+                                    {
+                                        foreach (var item in baiviethot)
+                                        {
+                                            string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
+                                            string url = $"/baiviet/{item.Alias}-{item.NewId}.html";
+                                            <li>
+                                                <div class="rc__post d-flex align-items-center">
+                                                    <div class="rc__post-thumb mr-20">
+                                                        <a href="@url">
+                                                            <img src="~/images/news/@imageList[0]" alt="@item.Title">
+                                                        </a>
+                                                    </div>
+                                                    <div class="rc__post-content">
+                                                        <h3 class="rc__post-title">
+                                                            <a href="@url">@item.Title</a>
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-10 col-xl-9 col-lg-9 order-first order-lg-last">
+                    <div class="row">
+                        @if (Model != null && Model.Count() > 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
+                                string url = $"/baiviet/{item.Alias}-{item.NewId}.html";
+                                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+                                    <article class="postbox__item format-image mb-50 transition-3">
+                                        <div class="postbox__list w-img">
+                                            <a href="@url">
+                                                <img src="~/images/news/@imageList[0]" alt="@item.Title">
+                                            </a>
+                                        </div>
+                                        <div class="postbox__content">
+                                            <h3 class="postbox__title">
+                                                <a href="@url">@item.Title</a>
+                                            </h3>
+                                            <div class="postbox__meta">
+                                                <p>Ngày đăng: <span>@item.CreatedDate </span></p>
+
+                                            </div>
+                                            <div class="postbox__text">
+                                                <p>@item.Scontents</p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            }
+                            
+
+                        }
+
+                        <div class="col-xxl-12">
+                            <pager class="pager-container" list="@Model" asp-area="" asp-route-CatId="@category.CatNewId"></pager>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- blog area end -->
+
+</main>

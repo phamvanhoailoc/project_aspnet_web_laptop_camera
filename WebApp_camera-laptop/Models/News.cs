@@ -26,5 +26,6 @@ namespace WebApp_camera_laptop.Models
         public int? Views { get; set; }
 
         public virtual Account Account { get; set; }
+        public virtual CategoriesNews Cat { get; set; }
     }
 }

@@ -1,0 +1,91 @@
+﻿@using PagedList.Core.Mvc
+@model PagedList.Core.IPagedList<WebApp_camera_laptop.Models.News>
+
+@{
+    int CurrentPage = ViewBag.CurrentPage;
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- breadcrumb area start -->
+<section class="breadcrumb__area box-plr-75">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="breadcrumb__wrapper">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home">Trang chính</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a></a>Danh sách bài viết</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- breadcrumb area end -->
+<table class="table table-condensed">
+
+    <caption>Danh sách bài viết : page @CurrentPage</caption>
+    <div class="dropdown js__drop_down" style="padding-top: 13px">
+        <a class="btn btn-info btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminNews" asp-action="Create">Thêm dự án</a>
+        <!-- /.sub-menu -->
+    </div>
+
+    <thead>
+        <tr>
+            <th>Tên bài viết</th>
+            <th>Danh mục</th>
+            <th>Ngày tạo</th>
+            <th>Trạng thái</th>
+            <th>#</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Cat.CatName</td>
+                    <td>@item.CreatedDate</td>
+                    <td>
+                        @if (item.Published != null && item.Published == true)
+                        {
+                            <span class="notice notice-blue">Hoạt động</span>
+                        }
+                        else if (item.Published != null && item.Published == false)
+                        {
+                            <span class="notice notice-danger">Khóa</span>
+                        }
+                        else
+                        {
+                            <span class="notice notice-danger">Không có thông tin</span>
+
+                        }
+                        </td>
+                    <td width="230px">
+                        @* <a class="btn btn-info btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Details" asp-route-id="@item.AccountId">View</a>*@
+                        @* <a class="btn btn-primary btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Edit" asp-route-id="@item.AccountId">Edit</a>*@
+                        @*<a class="btn btn-success btn-xs waves-effect waves-light" asp-area="Admin" asp-controller="AdminAccounts" asp-action="Delete" asp-route-id="@item.AccountId">Delete</a>*@
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-sm-5">
+        <div class="dataTables_info" id="example_info" role="status" aria-live="polite">Page @CurrentPage</div>
+    </div>
+    <div class="col-sm-7">
+        <div class="dataTables_paginate paging_simple_numbers" id="example_paginate">
+            <ul class="pagination">
+                <pager class="pager-container" list="@Model" asp-area="Admin" asp-controller="AdminNews" asp-action="Index"></pager>
+            </ul>
+        </div>
+    </div>
+</div>

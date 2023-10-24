@@ -1,0 +1,108 @@
+﻿@model WebApp_camera_laptop.Models.News
+
+@{
+    News Namebaiviet = ViewBag.Namebaiviet;
+    ViewData["Title"] = Namebaiviet.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<News> baiviethot = ViewBag.baiviethot;
+}
+<main>
+
+    <!-- breadcrumb area start -->
+    <section class="breadcrumb__area box-plr-75">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-12">
+                    <div class="breadcrumb__wrapper">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Chi tiết bài viết</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb area end -->
+    <!-- blog area start -->
+    <section class="blog__area box-plr-75 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-2 col-xl-3 col-lg-4">
+                    <div class="sidebar__widget">
+                        <div class="sidebar__widget-item mb-35">
+                            <h3 class="sidebar__widget-title mb-30">Bài viết nổi bậc</h3>
+                            <div class="sidebar__post rc__post">
+                                <ul>
+                                    @if (baiviethot != null)
+                                    {
+                                        foreach (var item in baiviethot)
+                                        {
+                                            string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
+                                            string url = $"/baiviet/{item.Alias}-{item.NewId}.html";
+                                            <li>
+                                                <div class="rc__post d-flex align-items-center">
+                                                    <div class="rc__post-thumb mr-20">
+                                                        <a href="@url">
+                                                            <img src="~/images/news/@imageList[0]" alt="@item.Title">
+                                                        </a>
+                                                    </div>
+                                                    <div class="rc__post-content">
+                                                        <h3 class="rc__post-title">
+                                                            <a href="@url">@item.Title</a>
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+                                    
+                                
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-10 col-xl-9 col-lg-8 order-first order-lg-last">
+                    <div class="row">
+                        <div class="col-xxl-12">
+                            @if(Model != null)
+                            {
+                                string[] imageList = !string.IsNullOrEmpty(Model.Thumb) ? Model.Thumb.Split(',') : new string[] { "default.jpg" };
+                                <div class="postbox__wrapper">
+                                    <article class="postbox__item format-image mb-50 transition-3">
+                                        <div class="postbox__thumb">
+                                            <a>
+                                                <img src="~/images/news/@imageList[0]" alt="@Model.Title">
+                                            </a>
+                                        </div>
+                                        <div class="postbox__content">
+                                            <h3 class="postbox__title postbox__title-2">
+                                                <a>@Model.Title</a>
+                                            </h3>
+                                            <div class="postbox__meta">
+                                                <p>Ngày đăng: <span>@Model.CreatedDate </span></p>
+                                            </div>
+                                            <div class="postbox__text">
+                                                <p>@Model.Scontents</p>
+                                            </div>
+                                            <div class="postbox__text">
+                                                <p>@Html.Raw(Model.Contents)</p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- blog area end -->
+
+
+</main>

@@ -40,8 +40,9 @@
                                     <ul>
                                         @foreach (var category in Model.Categories)
                                         {
+                                            string url = $"/sanpham/{category.Alias}";
                                             <li>
-                                                <a href="@category.Alias">@category.CatName</a>
+                                                <a href="@url">@category.CatName</a>
                                             </li>
                                            
                                         }                                  

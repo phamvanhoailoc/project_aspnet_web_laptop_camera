@@ -1,107 +1,135 @@
-﻿@model WebApp_camera_laptop.Models.News
+﻿@model WebApp_camera_laptop.Areas.Admin.ModelViews.NewsAdminViewModel
 
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+@section Styles{
+    <link href="~/assets/admin/sumernote/summernote-bs4.css" rel="stylesheet" />
+    <link href="~/assets/admin/sumernote/summernote.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+            @*    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />*@
 
-<h2>Edit</h2>
 
-<h4>News</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+}
+
+<section class="breadcrumb__area box-plr-75">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xxl-12">
+                <div class="breadcrumb__wrapper">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                            <li class="breadcrumb-item active"><a asp-action="Index">Quản lý bài viết</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a></a>Chỉnh sửa bài viết</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="col-xs-12">
+    <div class="box-content">
+        <h4 class="box-title">Form chỉnh sửa bài viết</h4>
+        <!-- /.box-title -->
+        <!-- /.dropdown js__dropdown -->
+        <form asp-controller="AdminNews" asp-action="Edit" method="post" enctype="multipart/form-data">
             <input type="hidden" asp-for="NewId" />
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+            <div id="tabsleft" class="tabbable tabs-left">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item active"><a class="nav-link" href="#tabsleft-tab1" data-toggle="tab">Thông tin bài viết</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tabsleft-tab2" data-toggle="tab">Nội dung bài viết</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tabsleft-tab1">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="emailfield">Tiêu đề bài viết</label>
+                                <div class="controls">
+                                    <input type="text" asp-for="Title" class="form-control">
+                                    <span class="text-danger" asp-validation-for="Title"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="emailfield">Danh mục</label>
+                                <select class="form-control select2_1" asp-for="CatId" asp-items="ViewBag.CatId">
+                                </select>
+                                <span class="text-danger" asp-validation-for="CatId"></span>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="emailfield">Mô tả ngắn bài viết</label>
+                                <div class="controls">
+                                    <textarea type="text" asp-for="Scontents" class="form-control"></textarea>
+                                    <span class="text-danger" asp-validation-for="Scontents"></span>
+
+                                </div>
+                            </div>
+                        </div>
+                       @* <div class="form-group">
+                            <label for="exampleInputFile">Ảnh bìa</label>
+                            <input type="file" multiple name="fThumb" asp-for="Thumb" />
+                        </div>*@
+                        <div class="form-group">
+                            <div class="switch primary">
+                                <input type="checkbox" asp-for="Published">
+                                <label for="Published">Hoạt động</label>
+                            </div>
+                            <div class="switch primary">
+                                <input type="checkbox" asp-for="IsNewfeed">
+                                <label for="IsNewfeed">Hiển thị ở trang chủ</label>
+                            </div>
+                            <div class="switch primary">
+                                <input type="checkbox" asp-for="IsHot">
+                                <label for="IsHot">Bài viết nổi bật</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tabsleft-tab2">
+                        <div class="card">
+                            <div class="card-body">
+                                <textarea class="summernote" asp-for="Contents"></textarea>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="Scontents" class="control-label"></label>
-                <input asp-for="Scontents" class="form-control" />
-                <span asp-validation-for="Scontents" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contents" class="control-label"></label>
-                <input asp-for="Contents" class="form-control" />
-                <span asp-validation-for="Contents" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Thumb" class="control-label"></label>
-                <input asp-for="Thumb" class="form-control" />
-                <span asp-validation-for="Thumb" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Published" class="control-label"></label>
-                <input asp-for="Published" class="form-control" />
-                <span asp-validation-for="Published" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Alias" class="control-label"></label>
-                <input asp-for="Alias" class="form-control" />
-                <span asp-validation-for="Alias" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Author" class="control-label"></label>
-                <input asp-for="Author" class="form-control" />
-                <span asp-validation-for="Author" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AccountId" class="control-label"></label>
-                <select asp-for="AccountId" class="form-control" asp-items="ViewBag.AccountId"></select>
-                <span asp-validation-for="AccountId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tags" class="control-label"></label>
-                <input asp-for="Tags" class="form-control" />
-                <span asp-validation-for="Tags" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CatId" class="control-label"></label>
-                <input asp-for="CatId" class="form-control" />
-                <span asp-validation-for="CatId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsHot" class="control-label"></label>
-                <input asp-for="IsHot" class="form-control" />
-                <span asp-validation-for="IsHot" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsNewfeed" class="control-label"></label>
-                <input asp-for="IsNewfeed" class="form-control" />
-                <span asp-validation-for="IsNewfeed" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MetaKey" class="control-label"></label>
-                <input asp-for="MetaKey" class="form-control" />
-                <span asp-validation-for="MetaKey" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MetaDesc" class="control-label"></label>
-                <input asp-for="MetaDesc" class="form-control" />
-                <span asp-validation-for="MetaDesc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Views" class="control-label"></label>
-                <input asp-for="Views" class="form-control" />
-                <span asp-validation-for="Views" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <button type="submit" value="Create" class="btn btn-primary">Cập nhật</button>
+                <button asp-action="Index" class="btn btn-default">Quay lại</button>
             </div>
         </form>
     </div>
+
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+@section Scripts{
+    @*<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>*@
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="~/assets/admin/sumernote/summernote-bs4.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            $('.summernote').summernote({
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5'],
+                height: 200,
+                minHeight: null,
+                maxHeight: null,
+                focus: true
+            });
+        });
+
+    </script>
+   
+}
 

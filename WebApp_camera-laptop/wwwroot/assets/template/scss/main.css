@@ -4653,14 +4653,12 @@ p.checkout-coupon input[type=text]:focus {
   color: #fcb700;
 }
 
-.postbox__item:hover .postbox__thumb img {
-  max-width: 100%;
-}
-.postbox__item:hover .postbox__list img {
-  max-width: 100%;
-}
 .postbox__thumb {
   overflow: hidden;
+}
+.postbox__thumb img {
+  width: 100%;
+  height: 100%;
 }
 @media only screen and (min-width: 1400px) and (max-width: 1600px), screen and (min-width: 1600px) {
   .postbox__thumb {

@@ -110,23 +110,28 @@
 // postbox css start
 
 .postbox{
-    &__item{
-        &:hover{
-            & .postbox__thumb{
-                & img{
-                    max-width: 100%;
-                    // @include transform(scale(1.1));
-                }
-            }
-            & .postbox__list{
-                & img{
-                    max-width: 100%;
-                    // @include transform(scale(1.1));
-                }
-            }
-        }
-    }
+    // &__item{
+    //     &:hover{
+    //         & .postbox__thumb{
+    //             & img{
+    //                 max-width: 100%;
+    //                 // @include transform(scale(1.1));
+    //             }
+    //         }
+    //         & .postbox__list{
+    //             & img{
+    //                 max-width: 100%;
+    //                 // @include transform(scale(1.1));
+    //             }
+    //         }
+    //     }
+    // }
     &__thumb{
+        & img{
+        width: 100%;
+        height: 100%;
+    }
+        
         overflow: hidden;
 
         @media #{$xxl, $xxxl} {

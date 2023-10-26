@@ -136,7 +136,7 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
                     };
                     _context.Add(news);
                     await _context.SaveChangesAsync();
-                    _notyfService.Success("Tạo sản phẩm thành công");
+                    _notyfService.Success("Tạo bài viết thành công");
 
                     // Sử dụng DbContext.Entry để lấy đối tượng sau khi đã thêm vào cơ sở dữ liệu
                     var addednews = _context.Entry(news).Entity;
@@ -166,8 +166,23 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", news.AccountId);
-            return View(news);
+            ViewData["CatId"] = new SelectList(_context.CategoriesNews, "CatNewId", "CatName", news.CatId);
+            return View(new NewsAdminViewModel
+            {
+                NewId = news.NewId,
+                Title = news.Title,
+                Alias = news.Alias,
+                CatId = news.CatId,
+                CreatedDate = news.CreatedDate,
+                Scontents = news.Scontents,
+                Contents = news.Contents,
+                IsHot = (bool)news.IsHot,
+                IsNewfeed = (bool)news.IsNewfeed,
+                Published = (bool)news.Published,
+                Tags = news.Tags,
+                MetaDesc = news.MetaDesc,
+                MetaKey = news.MetaKey
+            });
         }
 
         // POST: Admin/AdminNews/Edit/5
@@ -175,9 +190,9 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("NewId,Title,Scontents,Contents,Thumb,Published,Alias,CreatedDate,Author,AccountId,Tags,CatId,IsHot,IsNewfeed,MetaKey,MetaDesc,Views")] News news)
+        public async Task<IActionResult> Edit(int id, NewsAdminViewModel baiviet)
         {
-            if (id != news.NewId)
+            if (id != baiviet.NewId)
             {
                 return NotFound();
             }
@@ -186,12 +201,36 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(news);
+                    var existingNews = await _context.News.FindAsync(baiviet.NewId);
+
+                    if (existingNews == null)
+                    {
+                        return NotFound();
+                    }
+                    baiviet.Alias = Utilities.SEOUrl(baiviet.Title);
+                    baiviet.CreatedDate = DateTime.Now;
+
+                    existingNews.Title = baiviet.Title;
+                    existingNews.Alias = baiviet.Alias;
+                    existingNews.CatId = baiviet.CatId;
+                    existingNews.CreatedDate = baiviet.CreatedDate;
+                    existingNews.Scontents = baiviet.Scontents;
+                    existingNews.Contents = baiviet.Contents;
+                    existingNews.IsHot = baiviet.IsHot;
+                    existingNews.IsNewfeed = baiviet.IsNewfeed;
+                    existingNews.Published = baiviet.Published;
+                    existingNews.Tags = baiviet.Tags;
+                    existingNews.MetaDesc = baiviet.MetaDesc;
+                    existingNews.MetaKey = baiviet.MetaKey;
+
+
+                    _context.Update(existingNews);
                     await _context.SaveChangesAsync();
+                    _notyfService.Success("Cập nhật bài viết thành công");
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NewsExists(news.NewId))
+                    if (!NewsExists(baiviet.NewId))
                     {
                         return NotFound();
                     }
@@ -202,8 +241,8 @@ namespace WebApp_camera_laptop.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AccountId"] = new SelectList(_context.Accounts, "AccountId", "AccountId", news.AccountId);
-            return View(news);
+            ViewData["CatId"] = new SelectList(_context.CategoriesNews, "CatNewId", "CatName", baiviet.CatId);
+            return View(baiviet);
         }
 
         // GET: Admin/AdminNews/Delete/5

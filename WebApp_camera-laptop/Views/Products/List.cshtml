@@ -60,7 +60,7 @@
                                         string firstImage = null;
                                         foreach (var item in IsBestSell)
                                         {
-                                            string url = $"/{item.Alias}-{item.ProductId}.html";
+                                            string url = $"/sanpham/{item.Alias}-{item.ProductId}.html";
                                             string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
 
                                             // Kiểm tra nếu danh sách không rỗng và có ít nhất một hình
@@ -108,7 +108,20 @@
                 <div class="col-xxl-10 col-xl-9 col-lg-8 order-first order-lg-last">
                     <div class="product__grid-wrapper">
                         <div class="product__grid-banner w-img">
-                            <img src="~/assets/template/img/banner/product-grid-banner.jpg" alt="">
+                            @if (category.CatId == 32)
+                            {
+                                <img src="~/assets/template/img/banner/BANER/CAMERA/camera.png" alt="">
+
+                            } else if (category.CatId == 38)
+                            {
+                                <img src="~/assets/template/img/banner/BANER/THIET BI MANG/thietbimang.png" alt="">
+
+                            }
+                            else
+                            {
+                                <img src="~/assets/template/img/banner/BANER/default/laptop.png" alt="">
+
+                            }
                         </div>
                         <div class="product__grid-item-wrapper pt-70">
                             <div class="product__filter mb-50">
@@ -147,7 +160,7 @@
                                             string SeconImage = null;
                                             foreach (var item in Model)
                                             {
-                                                string url = $"/{item.Alias}-{item.ProductId}.html";
+                                                string url = $"/sanpham/{item.Alias}-{item.ProductId}.html";
                                                 string[] imageList = !string.IsNullOrEmpty(item.Thumb) ? item.Thumb.Split(',') : new string[] { "default.jpg" };
 
                                                 // Kiểm tra nếu danh sách không rỗng và có ít nhất một hình

@@ -73,8 +73,10 @@
                                 string[] imageList = !string.IsNullOrEmpty(Model.Thumb) ? Model.Thumb.Split(',') : new string[] { "default.jpg" };
                                 <div class="postbox__wrapper">
                                     <article class="postbox__item format-image mb-50 transition-3">
-                                        <div class="postbox__thumb">
+                                        <div class="postbox__thumb" id="lightgallery">
+                                            <a href="~/images/news/@imageList[0]">
                                                 <img src="~/images/news/@imageList[0]" alt="@Model.Title" >
+                                            </a>
                                         </div>
                                         <div class="postbox__content">
                                             <h3 class="postbox__title postbox__title-2">
@@ -104,3 +106,11 @@
 
 
 </main>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#lightgallery').lightGallery();
+        });
+    </script>
+}

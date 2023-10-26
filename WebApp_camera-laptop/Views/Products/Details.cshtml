@@ -90,8 +90,10 @@
                                     @for (var i = 0; i < imageList.Length; i++)
                                     {
                                         <div class="tab-pane fade @(i == 0 ? "show active" : "")" id="thumb@(i + 1)" role="tabpanel" aria-labelledby="thumb@(i + 1)-tab">
-                                            <div class="product__details-nav-thumb">
-                                                <img  src="~/images/products/@imageList[i]" alt="@Model.Title">
+                                            <div class="product__details-nav-thumb" id="lightgallery-@i">
+                                                <a href="~/images/products/@imageList[i]" >
+                                                <img src="~/images/products/@imageList[i]" alt="@Model.Title">
+                                                </a>
                                             </div>
                                         </div>
                                     }        
@@ -107,21 +109,7 @@
                             <h3 class="product__details-title">
                                 <a href="product-details.html">@Model.ProductName</a>
                             </h3>
-                           @* <div class="product__review d-sm-flex">
-                                <div class="rating rating__shop mb-15 mr-35">
-                                    <ul>
-                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fal fa-star"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__add-review mb-15">
-                                    <span><a href="#">1 Review</a></span>
-                                    <span><a href="#">Add Review</a></span>
-                                </div>
-                            </div>*@
+  
                             <div class="product__price">
                                 @if (Model.Price != null || Model.Discount != null)
                                 {
@@ -441,6 +429,21 @@
             zoomWindowHeight: 350
         });
      
+    </script>
+
+    <script>
+        $(document).ready(function () {
+        @if (Model != null)
+        {
+            string[] imageList = !string.IsNullOrEmpty(Model.Thumb) ? Model.Thumb.Split(',') : new string[] { "default.jpg" };
+            @for (var i = 0; i < imageList.Length; i++)
+            {
+                <text>
+                        $('#lightgallery-@i').lightGallery();
+                </text>
+            }
+        } 
+            });
     </script>
   
 

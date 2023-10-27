@@ -37,7 +37,7 @@
                             <button type="button" class="cat-toggle-btn"><i class="fas fa-bars"></i> DANH MỤC SẢN PHẨM</button>
                             <div class="cat__menu">
                                 <nav id="mobile-menu">
-                                    <ul>
+                                   @* <ul>
                                         @foreach (var category in Model.Categories)
                                         {
                                             string url = $"/sanpham/{category.Alias}";
@@ -46,6 +46,10 @@
                                             </li>
                                            
                                         }                                  
+                                    </ul>*@
+                                    <ul>
+                                    @await Component.InvokeAsync("CategoryMenu")
+
                                     </ul>
 
                                 </nav>

@@ -27,27 +27,8 @@
                                             <li>
                                                 <a href="#">Sản phẩm <i class="far fa-angle-down"></i></a>
                                                 <ul class="submenu">
-                                                    <li>
-                                                        <a href="/sanpham/camera">Camera</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/sanpham/laptop">Laptop</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/sanpham/linh-kien-may-tinh">Link kiện máy tính</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/sanpham/may-tinh-de-ban">Máy tính để bàn</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/sanpham/may-van-phong">Máy văn phòng</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/sanpham/thiet-bi-an-ninh">Thiết bị an ninh</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="/sanpham/thiet-bi-mang">Thiết bị mạng</a>
-                                                    </li>
+                                                    @await Component.InvokeAsync("CategoryMenu")
+
                                                 </ul>
 
                                             </li>

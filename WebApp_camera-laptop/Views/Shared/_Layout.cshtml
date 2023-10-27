@@ -77,7 +77,30 @@
                         <button type="submit"><i class="far fa-search"></i></button>
                     </form>
                 </div>*@
-                <div class="mobile-menu fix"></div>
+                <div class="mobile-menu fix">
+                    <nav id="mobile-menu" style="display:none">
+                        <ul>
+                            <li>
+                                <a href="/">Trang chủ </a>
+
+                            </li>
+                            <li>
+                                <a href="#">Sản phẩm <i class="far fa-angle-down"></i></a>
+                                <ul class="submenu">
+                                    @await Component.InvokeAsync("CategoryMenu")
+
+                                </ul>
+
+                            </li>
+                            <li><a href="/baiviet/du-an">Dự án</a></li>
+
+                            <li><a href="#">Dịch vụ</a></li>
+                            <li><a asp-controller="Home" asp-action="Contact">Liên hệ</a></li>
+
+                        </ul>
+
+                    </nav>
+                </div>
                 <div class="offcanvas__action">
                 </div>
             </div>
@@ -150,13 +173,7 @@
                                         <div class="footer__widget-content">
                                             <div class="footer__link footer__link-2">
                                                 <ul>
-                                                    <li><a href="/sanpham/camera">Camera</a></li>
-                                                    <li><a href="/sanpham/laptop">Laptop</a></li>
-                                                    <li><a href="/sanpham/linh-kien-may-tinh">Link kiện máy tính</a></li>
-                                                    <li><a href="/sanpham/may-tinh-de-ban">Máy tính để bàn</a></li>
-                                                    <li><a href="/sanpham/may-van-phong">Máy văn phòng</a></li>
-                                                    <li><a href="/sanpham/thiet-bi-an-ninh">Thiết bị an ninh</a></li>
-                                                    <li><a href="/sanpham/thiet-bi-mang">Thiết bị mạng</a></li>
+                                                    @await Component.InvokeAsync("CategoryMenu")
                                                 </ul>
                                             </div>
                                         </div>

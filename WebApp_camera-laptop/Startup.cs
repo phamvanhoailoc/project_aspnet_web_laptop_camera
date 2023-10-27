@@ -34,6 +34,7 @@ namespace WebApp_camera_laptop
             services.AddDbContext<webap_camera_laptopContext>(options => options.UseSqlServer(stringConnectdb));
             services.AddSingleton<HtmlEncoder>(HtmlEncoder.Create(allowedRanges: new[] { UnicodeRanges.All }));
             services.AddSession();
+            services.AddMvc();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(p =>
                 {

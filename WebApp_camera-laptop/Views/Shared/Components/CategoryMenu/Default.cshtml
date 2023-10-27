@@ -1,0 +1,10 @@
+﻿<!-- Views/Shared/Components/CategoryMenu/Default.cshtml -->
+
+    @foreach (var category in Model)
+    {
+        string url = $"/sanpham/{category.Alias}";
+        <li>
+            <a href="@url">@category.CatName</a>
+        </li>
+
+    }

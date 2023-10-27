@@ -493,3 +493,4 @@ D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\Razor\Areas\Admin\Views\AdminNews\Index.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\Razor\Views\News\Details.cshtml.g.cs
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\Razor\Views\News\List.cshtml.g.cs
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\Razor\Views\Shared\Components\CategoryMenu\Default.cshtml.g.cs

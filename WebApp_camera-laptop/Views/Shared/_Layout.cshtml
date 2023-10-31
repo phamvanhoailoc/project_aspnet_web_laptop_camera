@@ -13,7 +13,6 @@
     <meta name="google-site-verification" content="YwWXDDqWsGTc-dwjEidFoJRvU-hjmQaZXkFshbtuubs" />
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="~/assets/template/img/logo/LGMAU_3.png" />
-
     <!-- CSS here -->
     <link rel="stylesheet" href="~/assets/template/css/preloader.css">
     <link rel="stylesheet" href="~/assets/template/css/bootstrap.min.css">
@@ -111,12 +110,24 @@
     <!-- offcanvas area end -->
     @RenderBody()
     <div class="container">
-        <div class="hotline-container">
+        @*<div class=" hotline-container ">
             <i class="fas fa-phone phone-icon"></i>
             <a href="tel:0344591592">Gọi ngay: 0344-591-592</a>
-        </div>
+        </div>*@
+        <a class="btn-77" href="tel:0344591592">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <i class="fas fa-phone-alt"></i> 
+            0344-591-592
+        </a>
+
     </div>
-    
+    <div class="container" >
+        <div class="zalo-chat-widget" data-oaid="3508772038471867510" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="1" data-width="400" data-height="600"></div>
+    </div>
+
  
     <!-- footer area start -->
     <footer>
@@ -187,7 +198,7 @@
                                         <div class="footer__widget-content">
                                             <div class="footer__social mb-20">
                                                 <ul>
-                                                    <li class="fb"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                                    <li class="fb"><a href="https://www.facebook.com/laptopphuongpham.vn?mibextid=LQQJ4d"><i class="fab fa-facebook-f"></i></a></li>
                                                     <li class="tw"><a href="#"><i class="fab fa-twitter"></i></a></li>
                                                     <li class="gp"><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
                                                     <li class="yt"><a href="#"><i class="fab fa-youtube"></i></a></li>
@@ -204,6 +215,7 @@
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-4">
                             @*<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FBHDStar&tabs=timeline&width=340&height=200&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1527445391014712" width="100%" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>*@
+                            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Flaptopphuongpham.vn%3Fmibextid%3DLQQJ4d&tabs=timeline&width=340&height=200&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1527445391014712" width="100%" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                         </div>
                     </div>
                 </div>
@@ -244,7 +256,8 @@
     <script src="~/assets/template/js/wow.min.js"></script>
     <script src="~/assets/template/js/imagesloaded.pkgd.min.js"></script>
     <script src="~/assets/template/js/miscellaneous/lightgallery/lightgallery.bundle.js"></script>
-    <script src="~/assets/template/js/miscellaneous/lightgallery/smartvoice.bundle.js"></script>
+   @* <script src="~/assets/template/js/miscellaneous/lightgallery/smartvoice.bundle.js"></script>*@
+    <script src="~/assets/template/js/zalo.js"></script>
     <script src="~/assets/template/js/main.js"></script>
     @await Component.InvokeAsync("Notyf")
     @await RenderSectionAsync("Scripts", required: false)
@@ -257,6 +270,8 @@
 
         gtag('config', 'G-RV72VV5CTK');
     </script>
+ 
+  
   
 </body>
 </html>

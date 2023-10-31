@@ -12,34 +12,6 @@
             display: none;
         }
 
-        .btn-detail {
-            border: 1px solid #2f80ed;
-            border-radius: 5px;
-            color: #2f80ed;
-            display: block;
-            margin: 0 auto;
-            max-width: 340px;
-            padding: 10px 5px;
-            text-align: center;
-        }
-
-        .chat-button {
-            background-color: #2f80ed; /* Màu nền của button chat Zalo */
-            color: white; /* Màu chữ */
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .zalo-icon {
-            font-size: 20px;
-            margin-right: 10px;
-        }
-
- 
-
     </style>
    
 }
@@ -106,9 +78,9 @@
                 <div class="col-xxl-5 col-xl-4 col-lg-4">
                     <div class="product__details-wrapper">
                         <div class="product__details">
-                            <h3 class="product__details-title">
-                                <a href="product-details.html">@Model.ProductName</a>
-                            </h3>
+                            <h1 class="product__details-title">
+                                @Model.ProductName
+                            </h1>
   
                             <div class="product__price">
                                 @if (Model.Price != null || Model.Discount != null)
@@ -150,34 +122,23 @@
                             <div class="product__details-stock">
                                 <div class="product__details-quantity mb-20">
                                     <form action="#">
-                                        <div class="pro-quan-area d-lg-flex align-items-center">
-                                            @*<div class="product-quantity mr-20 mb-25">
-                                                <div class="cart-plus-minus p-relative">
-                                                    <input class="txtsoLuong" type="text" value="1" min="1" max="@Model.UnitslnStock">
-                                                    <div class=" dec qtybutton">-</div>
-                                                    <div class="inc qtybutton">+</div>
-                                                </div>
-                                            </div>*@
-                                            
-                                            <div class="pro-cart-btn mb-25">
-                                                <a class="chat-button" href="https://zalo.me/0344591592">
-                                                    <i class="fa fa-commenting zalo-icon"></i> Tư vấn qua ZALO
+                                        <div class="pro-quan-area align-items-center">   
+                                            <div class="block-button normal">
+                                                <a href="https://zalo.me/0344591592" class="btn-ins pay-taichinh btn-left">
+                                                    Tư vấn qua ZALO
                                                 </a>
-                                                <input hidden asp-for="ProductId" />
+                                                @if (Model.Cpu != null && Model.Cpu != "")
+                                                {
+                                                    <a href="@Model.Cpu" class="btn-tiktok pay-nganluong btn-right">
+                                                        <i class="fab fa-tiktok"></i> Đặt hàng qua tiktok
+                                                    </a>
+                                                }
+                                              
                                             </div>
-                                             
                                         </div>
                                     </form>
                                 </div>
-                            </div>
-                            @*<div class="product__details-action">
-                                <ul>
-                                    <li><a href="#" title="Add to Wishlist"><i class="fal fa-heart"></i></a></li>
-                                    <li><a href="#" title="Compare"><i class="far fa-sliders-h"></i></a></li>
-                                    <li><a href="#" title="Print"><i class="fal fa-print"></i></a></li>
-                                    <li><a href="#" title="Print"><i class="fal fa-share-alt"></i></a></li>
-                                </ul>
-                            </div>*@
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -445,7 +406,6 @@
         } 
             });
     </script>
-  
 
 }
 

@@ -19,7 +19,7 @@
             }
             &:hover{
                 & > a{
-                    color: $t-yellow;
+                    color: $t-green;
                 }
                 & ul.submenu{
                     visibility: visible;
@@ -58,7 +58,7 @@
                         border-bottom: 1px solid #b0c6c64d;
                         color: $black;
                         &:hover{
-                            color: $t-yellow;
+                            color: $t-green;
                         }
                         & i{
                             position: absolute;
@@ -96,7 +96,7 @@
         & li{
             &:hover{
                 & > a{
-                    color: $t-yellow
+                    color: $t-green
                 }
             }
         }
@@ -170,7 +170,7 @@
 }
 
 .cat-toggle-2{
-  border: 2px solid $t-yellow;
+  border: 2px solid $t-green;
   @include border-radius(5px 5px 0 0);
   @media #{$xxl} {
     min-height: 474px;
@@ -284,7 +284,7 @@
                 }
                 &:hover{
                     & > a{
-                        color: $t-yellow;
+                        color: $t-green;
                     }
                     & .mega-menu{
                         visibility: visible;
@@ -359,7 +359,7 @@
                                 }
                                 &:hover{
                                     & > a{
-                                        color: $t-yellow;
+                                        color: $t-green;
                                         &::after{
                                             width: 100%;
                                             left: 0;
@@ -371,7 +371,7 @@
                         }
                         &:hover{
                             & > a{
-                                color: $t-yellow;
+                                color: $t-green;
                             }
                         }
                     }
@@ -445,7 +445,7 @@
   font-size: 18px;
   color: $black;
   &:hover{
-    color: $t-yellow;
+    color: $t-green;
   }
   &-2{
     &:hover{
@@ -497,7 +497,7 @@
     line-height: 1.5;
     font-weight: 700;
     &:hover{
-        color: $t-yellow;
+        color: $t-green;
     }
     & .cat-label{
         display: none;
@@ -505,12 +505,12 @@
 }
 .mean-container.mobile-menu-2 .mean-nav ul li a {
     &:hover{
-        color: $t-yellow;
+        color: $t-green;
     }
 }
 .mean-container.mobile-menu-3 .mean-nav ul li a {
     &:hover{
-        color: $t-yellow;
+        color: $t-green;
     }
 }
 
@@ -527,26 +527,26 @@
 	top: 0;
 	font-weight: 400;
     &:hover{
-        background: $t-yellow;
+        background: $t-green;
         color: $white;
-        border-color: $t-yellow;
+        border-color: $t-green;
     }
 }
 
 .mean-container.mobile-menu-2 .mean-nav ul li a.mean-expand {
 
     &:hover{
-        background: $t-yellow;
-        color: $t-yellow;
-        border-color: $t-yellow;
+        background: $t-green;
+        color: $t-green;
+        border-color: $t-green;
     }
 }
 .mean-container.mobile-menu-3 .mean-nav ul li a.mean-expand {
 
     &:hover{
-        background: $t-yellow;
+        background: $t-green;
         color: $white;
-        border-color: $t-yellow;
+        border-color: $t-green;
     }
 }
 

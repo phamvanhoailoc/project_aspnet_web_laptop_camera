@@ -87,7 +87,7 @@
         & i{
             margin-right: 10px;
             font-size: 40px;
-            color: $t-yellow;
+            color: $t-green;
         }
     }
     &__content{
@@ -101,4 +101,12 @@
           margin-bottom: 0;
         }
     }
+}
+.description-content{
+  overflow: hidden !important;
+  & img{
+    width: 100% !important; 
+    height: 100% !important; 
+    object-fit: cover !important; 
+  }
 }

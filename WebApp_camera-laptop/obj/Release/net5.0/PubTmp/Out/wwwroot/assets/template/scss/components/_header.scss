@@ -421,8 +421,12 @@
   & .header__hotline-icon i{
     color: $black;
   }
-  & .header__hotline-info span {
-  	color: $black;
+  & .header__hotline-info a{
+        text-decoration: none; 
+        background: linear-gradient(to right, #64bc45, #bed62f); 
+        color: white; 
+        padding: 5px 10px;
+        border-radius: 5px; 
   }
   & .header__search-box button {
   	background: $black;
@@ -491,9 +495,41 @@
     & .header__hotline-icon i{
       color: $black;
     }
-    & .header__hotline-info span {
-        color: $black;
+    & .header__hotline-info a {
+        text-decoration: none; 
+        background: repeating-linear-gradient(to right, #64bc45 0%, #bed62f 50%, #64bc45 100%); 
+        color: white; 
+        font-size: 17px;
+        margin-bottom: 5px;
+        padding: 3px 10px;
+        display: block; 
+        border-radius: 5px; 
+        -webkit-animation: pulse-header-info 2s infinite;
+        animation: pulse-header-info 2s infinite, colorChange 2s linear infinite;
+        background-size: 200% 100%;
+        background-position: 0 100%;
+        box-shadow: 0 0 0 3px transparent;
+        @-webkit-keyframes pulse-header-info {
+            0% {
+              box-shadow: 0 0 0 0 #3b8122;
+            }
+          }
+          @keyframes pulse-header-info {
+            0% {
+              box-shadow: 0 0 0 0 #3b8122;
+            }
+          }
+        @keyframes colorChange {
+        0% {
+            background-position: 0 0;
+        }
+        
+        100% {
+            background-position: -200% 0;
+        }
+        }
     }
+    
     & .header__search-box button {
         background: $black;
       color: $t-yellow;

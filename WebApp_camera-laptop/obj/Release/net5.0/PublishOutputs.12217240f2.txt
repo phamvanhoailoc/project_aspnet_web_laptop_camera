@@ -1649,6 +1649,7 @@ D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\js\vendor\jquery-3.6.0.min.js
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\js\vendor\waypoints.min.js
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\js\wow.min.js
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\js\zalo.js
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\mail.php
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\sass.txt
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\scss\abstracts\_breakpoints.scss
@@ -1695,6 +1696,8 @@ D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\images\products\-_2.jpg
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\images\products\-_3.jpg
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\images\products\asdad_1.png
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\images\products\asdasdasd_1.png
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\images\products\asdasdasd_2.png
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\images\products\asdasd_1.jpg
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\images\products\asdasd_1.png
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\images\products\asdasd_2.jpg

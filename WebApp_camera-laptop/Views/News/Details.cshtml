@@ -79,16 +79,16 @@
                                             </a>
                                         </div>
                                         <div class="postbox__content">
-                                            <h3 class="postbox__title postbox__title-2">
-                                                <a>@Model.Title</a>
-                                            </h3>
+                                            <h1 class="postbox__title postbox__title-2">
+                                                @Model.Title
+                                            </h1>
                                             <div class="postbox__meta">
                                                 <p>Ngày đăng: <span>@Model.CreatedDate </span></p>
                                             </div>
                                             <div class="postbox__text">
                                                 <p>@Model.Scontents</p>
                                             </div>
-                                            <div class="postbox__text">
+                                            <div class="description-content">
                                                 <p>@Html.Raw(Model.Contents)</p>
                                             </div>
                                         </div>

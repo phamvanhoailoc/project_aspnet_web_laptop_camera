@@ -32,6 +32,7 @@ namespace WebApp_camera_laptop.Areas.Admin.ModelViews
         public int? UnitslnStock { get; set; }
         public int? ProducerId { get; set; }
         public int? StatusId { get; set; }
+        [MaxLength(250)]
         public string Cpu { get; set; }
         public string Ram { get; set; }
         public string HardDrive { get; set; }

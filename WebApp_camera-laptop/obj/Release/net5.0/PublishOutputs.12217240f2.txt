@@ -1520,6 +1520,8 @@ D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\img\brand\thietbimang\hp.png
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\img\brand\thietbimang\kasda.png
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\img\favicon.png
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\img\footer\ezviz.png
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\img\footer\imou.png
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\img\icon\app-store-2.jpg
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\img\icon\app-store.jpg
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\assets\template\img\icon\icon_email.png
@@ -1788,6 +1790,8 @@ D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.min.js
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.min.map
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\LICENSE.txt
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\robots.txt
+D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\wwwroot\sitemap.xml
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\appsettings.json
 D:\work\project-ecommerce-laptop-camera\project_aspnet_web_laptop_camera\WebApp_camera-laptop\obj\Release\net5.0\PubTmp\Out\refs\Microsoft.AspNetCore.Antiforgery.dll

@@ -5,11 +5,8 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 @section Styles{
-    <link href="~/assets/admin/sumernote/summernote-bs4.css" rel="stylesheet" />
-    <link href="~/assets/admin/sumernote/summernote.css" rel="stylesheet" />
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-            @*    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />*@
+    <link href="~/assets/admin/plugin/summernote/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/admin/plugin/summernote/css/summernote.min.css" rel="stylesheet">
 
 
 }
@@ -167,41 +164,27 @@
 
 
 @section Scripts{
-    @*<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>*@
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="~/assets/admin/sumernote/summernote-bs4.js"></script>
+    <script src="~/assets/admin/plugin/summernote/js/jquery-3.5.1.min.js"></script>
+    <script src="~/assets/admin/plugin/summernote/js/bootstrap.min.js"></script>
+    <script src="~/assets/admin/plugin/summernote/js/summernote.min.js"></script>
 
     <script>
-        jQuery(document).ready(function () {
-            $('.summernote').summernote({
-                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5'],
-                height: 200,
-                minHeight: null,
-                maxHeight: null,
-                focus: true
-            });
-        });
-
-    </script>
-    @* <script>
-        Dropzone.autoDiscover = false;
         $(document).ready(function () {
-            var myDropzone = new Dropzone("#myDropzone", {
-                url: "/Upload",
-                paramName: "fThumb",
-                addRemoveLinks: true,
-                dictRemoveFile: "Remove",
-                removedfile: function (file) {
-                    var _ref;
-                    return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : null;
-                },
-                success: function (file, response) {
-                    console.log(response);
+            $('.summernote').summernote(
+                {
+                    height: 500,
+                    toolbar: [
+
+                        ['font', ['bold', 'italic', 'underline', 'clear']],
+                        ['para', ['ul', 'ol']],
+                        ['height', ['height']]
+                        ['table', ['table']],
+                        ['insert', ['link', 'picture', 'video']],
+                        ['view', ['help']]
+                    ],
                 }
-            });
+            );
         });
-    </script>*@
+    </script>
 }
 

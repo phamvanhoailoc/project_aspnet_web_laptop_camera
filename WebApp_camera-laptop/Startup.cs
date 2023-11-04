@@ -50,30 +50,38 @@ namespace WebApp_camera_laptop
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+
+            app.UseExceptionHandler("/Home/Error");
+            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            app.UseHsts();
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession();
-            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
             // Áp dụng Middleware kiểm tra đăng nhập sau khi cấu hình các routes
-            app.UseMiddleware<AuthenticationMiddleware>();
+            app.UseMiddleware<NotFoundPageMiddleware>();
+            //app.UseMiddleware<AuthenticationMiddleware>();
+            app.UseRouting();
+            app.UseExceptionHandler(errorApp =>
+            {
+                errorApp.Run(async context =>
+                {
+                    context.Response.Redirect("/Home/Error");
+                });
+            });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                 name: "areas",
                 pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
               );
+                endpoints.MapControllerRoute(
+                name: "error",
+                pattern: "error",
+                defaults: new { controller = "Home", action = "Error" }
+            );
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

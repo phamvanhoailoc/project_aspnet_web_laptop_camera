@@ -57,7 +57,7 @@ namespace WebApp_camera_laptop.Controllers
                 PagedList<Product> models = new PagedList<Product>(IsProducts.AsQueryable(), page, pageSize);
                 var IsBestsell = _context.Products
                     .AsNoTracking()
-                    .Where(x => x.BestSellers == true && x.Active == true)
+                    .Where(x => x.ProductCategoris.Any(pc => pc.CatId == danhmuc.CatId) && x.BestSellers == true && x.Active == true)
                     .OrderByDescending(x => x.DateCreated)
                     .Take(4)
                     .ToList();

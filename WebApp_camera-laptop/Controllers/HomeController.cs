@@ -86,9 +86,9 @@ namespace WebApp_camera_laptop.Controllers
                 ViewBag.duan = duan;
                 return View(model);
             }
-            catch
+            catch (Exception ex)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Error", "Home");
             }
         }
 
@@ -100,7 +100,8 @@ namespace WebApp_camera_laptop.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ViewBag.ErrorMessage = "Xin lỗi, trang bạn đang tìm kiếm không tồn tại.";
+            return View();
         }
 
         [Route("Lien-he.html", Name = "Liên hệ")]
